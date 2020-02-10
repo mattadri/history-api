@@ -1,0 +1,8 @@
+Generic single-database configuration.
+
+# To Migrate database after changes. (Creates a new version.)
+# In the terminal with the virtual environment activated run:
+python manage.py db migrate
+
+# Then if the new version is correct under migrations/versions run:
+python manage.py db upgrade
