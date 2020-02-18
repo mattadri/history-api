@@ -1,3 +1,5 @@
+from flask import request
+
 from marshmallow_jsonapi.flask import Schema, Relationship
 from marshmallow_jsonapi import fields
 
@@ -20,8 +22,9 @@ class ReferenceSchema(Schema):
     id = fields.Str(dump_only=True)
     created = fields.Date()
     modified = fields.Date()
-    title = fields.String()
-    published_day = fields.Integer(required=False)
+    title = fields.String(required=True)
+    sub_title = fields.String(required=False, allow_none=True)
+    published_day = fields.Integer(required=False, allow_none=True)
     published_month = fields.Nested(MonthSchema)
     published_year = fields.Integer(required=True)
     published_era = fields.Nested(EraSchema)
@@ -61,6 +64,13 @@ class ReferenceList(ResourceList):
 
 
 class ReferenceDetail(ResourceDetail):
+    def before_patch(self, args, kwargs):
+        if 'published_day' in request.json['data']['attributes'].keys() and request.json['data']['attributes']['published_day'] == 'null':
+            request.json['data']['attributes']['published_day'] = None
+
+        if 'published_month_rel' in request.json['data']['attributes'] and request.json['data']['attributes']['published_month_rel']['data']['id'] == 'null':
+            request.json['data']['attributes']['published_month_rel']['data']['id'] = None
+
     # make sure that when a reference is deleted any relationships that reference had with any authors is also deleted.
     def before_delete(self, args, kwargs):
         query = db.session.query(ReferenceAuthor)

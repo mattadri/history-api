@@ -9,7 +9,7 @@ class Event(db.Model):
     modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
     label = db.Column(db.String, nullable=False)
     description = db.Column(db.String)
-    event_start_day = db.Column(db.Integer)
+    event_start_day = db.Column(db.Integer, nullable=True)
     event_start_month_fk = db.Column(db.Integer, db.ForeignKey('month.id'))
     event_start_month = db.relationship('Month', foreign_keys=[event_start_month_fk])
     event_start_month_rel = db.relationship('Month', foreign_keys=[event_start_month_fk])

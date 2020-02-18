@@ -1,3 +1,5 @@
+from flask import request
+
 from marshmallow_jsonapi.flask import Schema, Relationship
 from marshmallow_jsonapi import fields
 
@@ -20,11 +22,11 @@ class EventSchema(Schema):
     modified = fields.Date()
     label = fields.String(required=True)
     description = fields.String()
-    event_start_day = fields.Integer(required=False)
+    event_start_day = fields.Integer(required=False, allow_none=True)
     event_start_month = fields.Nested('MonthSchema')
     event_start_year = fields.Integer(required=True)
     event_start_era = fields.Nested('EraSchema')
-    event_end_day = fields.Integer(required=False)
+    event_end_day = fields.Integer(required=False, allow_none=True)
     event_end_month = fields.Nested('MonthSchema')
     event_end_year = fields.Integer(required=False)
     event_end_era = fields.Nested('EraSchema')
@@ -81,6 +83,21 @@ class EventList(ResourceList):
 
 
 class EventDetail(ResourceDetail):
+    def before_patch(self, args, kwargs):
+        if 'event_start_day' in request.json['data']['attributes'].keys() and request.json['data']['attributes']['event_start_day'] == 'null':
+            request.json['data']['attributes']['event_start_day'] = None
+
+        if 'event_end_day' in request.json['data']['attributes'].keys() and request.json['data']['attributes']['event_end_day'] == 'null':
+            request.json['data']['attributes']['event_end_day'] = None
+
+        if 'event_start_month_rel' in request.json['data']['attributes'] and request.json['data']['attributes']['event_start_month_rel']['data']['id'] == 'null':
+            request.json['data']['attributes']['event_start_month_rel']['data']['id'] = None
+
+        if 'event_end_month_rel' in request.json['data']['attributes'] and request.json['data']['attributes']['event_end_month_rel']['data']['id'] == 'null':
+            request.json['data']['attributes']['event_end_month_rel']['data']['id'] = None
+
+        return
+
     schema = EventSchema
     data_layer = {'session': db.session,
                   'model': Event}
