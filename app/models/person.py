@@ -10,6 +10,7 @@ class Person(db.Model):
     first_name = db.Column(db.String)
     middle_name = db.Column(db.String)
     last_name = db.Column(db.String)
+    description = db.Column(db.String)
     birth_day = db.Column(db.Integer)
     birth_month_fk = db.Column(db.Integer, db.ForeignKey('month.id'))
     birth_month = db.relationship('Month', foreign_keys=[birth_month_fk])
@@ -29,3 +30,15 @@ class Person(db.Model):
     reference_fk = db.Column(db.Integer, db.ForeignKey('reference.id'))
     reference = db.relationship('Reference', foreign_keys=[reference_fk], backref=db.backref('person'))
     reference_rel = db.relationship('Reference', foreign_keys=[reference_fk])
+
+
+class PersonNote(db.Model):
+    __tablename__ = 'person_note'
+
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.DateTime, default=db.func.current_timestamp())
+    modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+    note = db.Column(db.String, nullable=False)
+    person_fk = db.Column(db.Integer, db.ForeignKey('person.id'))
+    person = db.relationship('Person', foreign_keys=[person_fk], backref=db.backref('person_note'))
+    person_rel = db.relationship('Person', foreign_keys=[person_fk])

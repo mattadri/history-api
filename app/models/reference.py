@@ -36,9 +36,28 @@ class ReferenceAuthor(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.DateTime, default=db.func.current_timestamp())
     modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+
     reference_fk = db.Column(db.Integer, db.ForeignKey('reference.id'))
     reference = db.relationship('Reference', foreign_keys=[reference_fk], backref=db.backref('reference_author'))
     reference_rel = db.relationship('Reference', foreign_keys=[reference_fk])
+
     author_fk = db.Column(db.Integer, db.ForeignKey('author.id'))
     author = db.relationship('Author', foreign_keys=[author_fk], backref=db.backref('reference_author'))
     author_rel = db.relationship('Author', foreign_keys=[author_fk])
+
+
+class ReferenceNote(db.Model):
+    __tablename__ = 'reference_note'
+
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.DateTime, default=db.func.current_timestamp())
+    modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+
+    note = db.Column(db.String, nullable=False)
+
+    chapter = db.Column(db.String)
+    page = db.Column(db.Integer)
+
+    reference_fk = db.Column(db.Integer, db.ForeignKey('reference.id'))
+    reference = db.relationship('Reference', foreign_keys=[reference_fk], backref=db.backref('reference_note'))
+    reference_rel = db.relationship('Reference', foreign_keys=[reference_fk])

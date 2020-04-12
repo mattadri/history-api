@@ -5,7 +5,7 @@ from marshmallow_jsonapi import fields
 
 from flask_rest_jsonapi import ResourceDetail, ResourceList, ResourceRelationship
 
-from app.models.reference import Reference, Author, ReferenceAuthor
+from app.models.reference import Reference, Author, ReferenceAuthor, ReferenceNote
 from app.schemas.month import MonthSchema
 from app.schemas.era import EraSchema
 
@@ -28,7 +28,16 @@ class ReferenceSchema(Schema):
     published_month = fields.Nested(MonthSchema)
     published_year = fields.Integer(required=True)
     published_era = fields.Nested(EraSchema)
-    reference_author = fields.Nested('ReferenceAuthorSchema', exclude=('reference',), many=True)
+
+    reference_author = fields.Nested(
+        'ReferenceAuthorSchema',
+        exclude=('reference',),
+        many=True)
+
+    reference_note = fields.Nested(
+        'ReferenceNoteSchema',
+        exclude=('reference',),
+        many=True)
 
     published_month_rel = Relationship(
         self_view='reference_month',
@@ -170,7 +179,37 @@ class ReferenceAuthorDetail(ResourceDetail):
                   'model': ReferenceAuthor}
 
 
-class ReferenceAuthorRelationship(ResourceRelationship):
-    schema = ReferenceAuthorSchema
+class ReferenceNoteSchema(Schema):
+    class Meta:
+        type_ = 'reference_note'
+        self_view = 'reference_note_detail'
+        self_view_kwargs = {'id': '<id>'}
+        self_view_many = 'reference_note_list'
+
+    id = fields.Str(dump_only=True)
+    created = fields.Date()
+    modified = fields.Date()
+
+    note = fields.String(required=True)
+    chapter = fields.String()
+    page = fields.Integer()
+
+    reference = fields.Nested('ReferenceSchema')
+
+    reference_rel = Relationship(
+        many=False,
+        schema='ReferenceSchema',
+        type_='reference'
+    )
+
+
+class ReferenceNoteList(ResourceList):
+    schema = ReferenceNoteSchema
     data_layer = {'session': db.session,
-                  'model': ReferenceAuthor}
+                  'model': ReferenceNote}
+
+
+class ReferenceNoteDetail(ResourceDetail):
+    schema = ReferenceNoteSchema
+    data_layer = {'session': db.session,
+                  'model': ReferenceNote}

@@ -7,7 +7,6 @@ from flask_sqlalchemy import SQLAlchemy
 # local config import
 from instance.config import app_config
 
-
 db = SQLAlchemy()
 
 
@@ -17,19 +16,24 @@ def create_api(flask_app):
 
     from app.schemas.era import EraList, EraDetail
     from app.schemas.month import MonthList, MonthDetail
-    from app.schemas.culture import CulturePeriodList, CulturePeriodDetail
-    from app.schemas.culture import CultureList, CultureDetail
-    from app.schemas.culture import CultureReferenceList, CultureReferenceDetail
     from app.schemas.event import EventList, EventDetail
     from app.schemas.event import EventNoteList, EventNoteDetail
+    from app.schemas.event import EventTagList, EventTagDetail
     from app.schemas.reference import ReferenceList, ReferenceDetail, ReferenceRelationship
     from app.schemas.reference import AuthorList, AuthorDetail, AuthorRelationship
-    from app.schemas.reference import ReferenceAuthorList, ReferenceAuthorDetail, ReferenceAuthorRelationship
+    from app.schemas.reference import ReferenceAuthorList, ReferenceAuthorDetail
+    from app.schemas.reference import ReferenceNoteList, ReferenceNoteDetail
     from app.schemas.person import PersonList, PersonDetail
+    from app.schemas.person import PersonTagList, PersonTagDetail
+    from app.schemas.person import PersonNoteList, PersonNoteDetail
+    from app.schemas.tag import TagList, TagDetail
 
     from app.schemas.timeline import TimelineList, TimelineDetail
     from app.schemas.timeline import TimelinePersonList, TimelinePersonDetail
     from app.schemas.timeline import TimelineEventList, TimelineEventDetail
+    from app.schemas.timeline import TimelineCategoryList, TimelineCategoryDetail
+    from app.schemas.timeline import TimelineCategoryEventList, TimelineCategoryEventDetail
+    from app.schemas.timeline import TimelineCategoryPersonList, TimelineCategoryPersonDetail
 
     api = Api(flask_app)
 
@@ -55,17 +59,9 @@ def create_api(flask_app):
     api.route(ReferenceAuthorList, 'reference_author_list', '/reference_authors')
     api.route(ReferenceAuthorDetail, 'reference_author_detail', '/reference_authors/<int:id>')
 
-    # CULTURE ROUTES
-    api.route(CultureList, 'culture_list', '/cultures')
-    api.route(CultureDetail, 'culture_detail', '/cultures/<int:id>')
-
-    # CULTURE PERIOD ROUTES
-    api.route(CulturePeriodList, 'culture_period_list', '/culture_periods')
-    api.route(CulturePeriodDetail, 'culture_period_detail', '/culture_periods/<int:id>')
-
-    # CULTURE REFERENCE ROUTES
-    api.route(CultureReferenceList, 'culture_reference_list', '/culture_references')
-    api.route(CultureReferenceDetail, 'culture_reference_detail', '/culture_references/<int:id>')
+    # REFERENCE-NOTE ROUTES
+    api.route(ReferenceNoteList, 'reference_note_list', '/reference_notes')
+    api.route(ReferenceNoteDetail, 'reference_note_detail', '/reference_notes/<int:id>')
 
     # EVENT ROUTES
     api.route(EventList, 'event_list', '/events')
@@ -79,6 +75,10 @@ def create_api(flask_app):
     api.route(PersonList, 'person_list', '/persons')
     api.route(PersonDetail, 'person_detail', '/persons/<int:id>')
 
+    # PERSON NOTE ROUTES
+    api.route(PersonNoteList, 'person_note_list', '/person_notes')
+    api.route(PersonNoteDetail, 'person_note_detail', '/person_notes/<int:id>')
+
     # TIMELINE ROUTES
     api.route(TimelineList, 'timeline_list', '/timelines')
     api.route(TimelineDetail, 'timeline_detail', '/timelines/<int:id>')
@@ -90,6 +90,30 @@ def create_api(flask_app):
     # TIMELINE-PERSON ROUTES
     api.route(TimelinePersonList, 'timeline_person_list', '/timeline_persons')
     api.route(TimelinePersonDetail, 'timeline_person_detail', '/timeline_persons/<int:id>')
+
+    # TIMELINE-CATEGORY ROUTES
+    api.route(TimelineCategoryList, 'timeline_category_list', '/timeline_categories')
+    api.route(TimelineCategoryDetail, 'timeline_category_detail', '/timeline_categories/<int:id>')
+
+    # TIMELINE-CATEGORY EVENT ROUTES
+    api.route(TimelineCategoryEventList, 'timeline_category_event_list', '/timeline_category_events')
+    api.route(TimelineCategoryEventDetail, 'timeline_category_event_detail', '/timeline_category_events/<int:id>')
+
+    # TIMELINE-CATEGORY PERSON ROUTES
+    api.route(TimelineCategoryPersonList, 'timeline_category_person_list', '/timeline_category_persons')
+    api.route(TimelineCategoryPersonDetail, 'timeline_category_person_detail', '/timeline_category_persons/<int:id>')
+
+    # TAG ROUTES
+    api.route(TagList, 'tag_list', '/tags')
+    api.route(TagDetail, 'tag_detail', '/tags/<int:id>')
+
+    # EVENT TAG ROUTES
+    api.route(EventTagList, 'event_tag_list', '/event_tags')
+    api.route(EventTagDetail, 'event_tag_detail', '/event_tags/<int:id>')
+
+    # PERSON TAG ROUTES
+    api.route(PersonTagList, 'person_tag_list', '/person_tags')
+    api.route(PersonTagDetail, 'person_tag_detail', '/person_tags/<int:id>')
 
 
 def create_flask_app(environment_config):

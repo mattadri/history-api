@@ -1,0 +1,1568 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "338668a8-9e28-2fc7-4e7f-fab267d089fd",
+			"name": "Eras",
+			"description": "",
+			"order": [
+				"b398136c-57e1-fe60-80f5-10f10253b7fe",
+				"df6e8604-4d3d-60e8-533b-63aef0b8a027"
+			],
+			"folders": [],
+			"folders_order": [],
+			"timestamp": 1576804212541,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"remoteLinkUpdatedAt": null,
+			"public": false,
+			"createdAt": 1576804212541,
+			"updatedAt": 1576805050464,
+			"write": true,
+			"published": false,
+			"favorite": false,
+			"permissions": {},
+			"syncedPermissions": {},
+			"requests": [
+				{
+					"id": "b398136c-57e1-fe60-80f5-10f10253b7fe",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/eras",
+					"queryParams": [],
+					"pathVariables": {},
+					"pathVariableData": [],
+					"preRequestScript": null,
+					"method": "GET",
+					"collectionId": "338668a8-9e28-2fc7-4e7f-fab267d089fd",
+					"data": null,
+					"dataMode": "params",
+					"name": "http://localhost:5000/eras",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1576804219362,
+					"version": 2,
+					"responses": [],
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {}
+				},
+				{
+					"id": "df6e8604-4d3d-60e8-533b-63aef0b8a027",
+					"headers": "Content-Type: application/vnd.api+json\nAccept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/eras",
+					"queryParams": [],
+					"pathVariables": {},
+					"pathVariableData": [],
+					"preRequestScript": null,
+					"method": "POST",
+					"collectionId": "338668a8-9e28-2fc7-4e7f-fab267d089fd",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"era\",\n\t\t\"attributes\": {\n\t\t\t\"label\": \"BC\"\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"name": "http://localhost:5000/eras",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1576804685591,
+					"version": 2,
+					"responses": [],
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {}
+				}
+			]
+		},
+		{
+			"id": "29a6a44b-1585-49a3-6912-4ee875b3f44a",
+			"name": "Author/Reference Relationships",
+			"description": "",
+			"order": [
+				"f233d1ac-2d95-a1c7-56df-85cbceb86a20",
+				"93adbdfd-6e2c-0819-4670-23ca511ac19f",
+				"10e48c3b-0b3e-98df-355e-2f3e1cba27dd"
+			],
+			"folders": [],
+			"folders_order": [],
+			"timestamp": 1578181863158,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"remoteLinkUpdatedAt": null,
+			"public": false,
+			"createdAt": 1578181863158,
+			"updatedAt": 1579136668929,
+			"write": true,
+			"published": false,
+			"favorite": false,
+			"permissions": {},
+			"syncedPermissions": {},
+			"requests": [
+				{
+					"id": "10e48c3b-0b3e-98df-355e-2f3e1cba27dd",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/reference_authors/39?include=reference_rel,author_rel",
+					"queryParams": [
+						{
+							"key": "include",
+							"value": "reference_rel,author_rel",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580482361810,
+					"name": "Get Single Authors/Reference Relationship",
+					"description": "",
+					"collectionId": "29a6a44b-1585-49a3-6912-4ee875b3f44a",
+					"responses": []
+				},
+				{
+					"id": "93adbdfd-6e2c-0819-4670-23ca511ac19f",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/reference_authors",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578695486109,
+					"name": "List All Authors/Reference Relationships",
+					"description": "",
+					"collectionId": "29a6a44b-1585-49a3-6912-4ee875b3f44a",
+					"responses": []
+				},
+				{
+					"id": "f233d1ac-2d95-a1c7-56df-85cbceb86a20",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/reference_authors",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"reference_author\",\n\t\t\"attributes\": {\n\t\t\t\"reference_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"reference\",\n\t\t\t\t\t\"id\": \"8\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"author_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"author\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1579136668924,
+					"name": "Create Author/Reference Relationship",
+					"description": "",
+					"collectionId": "29a6a44b-1585-49a3-6912-4ee875b3f44a",
+					"responses": []
+				}
+			]
+		},
+		{
+			"id": "69f57bb6-54f7-cc9f-a6d4-8b3e2ea057f0",
+			"name": "Months",
+			"description": "",
+			"order": [
+				"38b1e14e-2ee2-eca1-153c-6db2df798e61",
+				"3a2e77fa-78cf-32ec-1ce8-59277ac4c30c",
+				"9ef101d8-c7ae-ae38-3457-b83ba26d08f3"
+			],
+			"folders": [],
+			"folders_order": [],
+			"timestamp": 1576805024441,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"remoteLinkUpdatedAt": null,
+			"public": false,
+			"createdAt": 1576805024441,
+			"updatedAt": 1578186620235,
+			"write": true,
+			"published": false,
+			"favorite": false,
+			"permissions": {},
+			"syncedPermissions": {},
+			"requests": [
+				{
+					"id": "38b1e14e-2ee2-eca1-153c-6db2df798e61",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/months",
+					"queryParams": [],
+					"pathVariables": {},
+					"pathVariableData": [],
+					"preRequestScript": null,
+					"method": "GET",
+					"collectionId": "69f57bb6-54f7-cc9f-a6d4-8b3e2ea057f0",
+					"data": null,
+					"dataMode": "params",
+					"name": "Get All Months",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1576805220263,
+					"version": 2,
+					"responses": [],
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {}
+				},
+				{
+					"id": "3a2e77fa-78cf-32ec-1ce8-59277ac4c30c",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/months/3",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578186628120,
+					"name": "Get Single Month",
+					"description": "",
+					"collectionId": "69f57bb6-54f7-cc9f-a6d4-8b3e2ea057f0",
+					"responses": []
+				},
+				{
+					"id": "9ef101d8-c7ae-ae38-3457-b83ba26d08f3",
+					"headers": "Content-Type: application/vnd.api+json\nAccept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/months",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"month\",\n\t\t\"attributes\": {\n\t\t\t\"label\": \"December\"\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1576805160541,
+					"name": "http://localhost:5000/months",
+					"description": "",
+					"collectionId": "69f57bb6-54f7-cc9f-a6d4-8b3e2ea057f0",
+					"responses": []
+				}
+			]
+		},
+		{
+			"id": "b1dcba73-279f-d13e-9625-bca7a56f405c",
+			"name": "Persons",
+			"description": "",
+			"order": [
+				"4675d1cc-6587-bf80-1938-b83987ef57fb",
+				"d72c6016-a4d7-8591-f60d-a5f8ed238937",
+				"65cef228-dd42-9970-82a9-90f0c59a62e5",
+				"840e73b2-94f3-91c2-f02f-718d9c9babda",
+				"3e41051b-d1cb-f11c-e448-60b201c12f6c",
+				"f43fb038-c5bf-ac1f-3152-e64e9121850b"
+			],
+			"folders": [],
+			"folders_order": [],
+			"timestamp": 1577573119452,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"remoteLinkUpdatedAt": null,
+			"public": false,
+			"createdAt": 1577573119452,
+			"updatedAt": 1580527371939,
+			"write": true,
+			"published": false,
+			"favorite": true,
+			"permissions": {},
+			"syncedPermissions": {},
+			"requests": [
+				{
+					"id": "3e41051b-d1cb-f11c-e448-60b201c12f6c",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/persons/22",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580502428095,
+					"name": "Get Specific Person",
+					"description": "",
+					"collectionId": "b1dcba73-279f-d13e-9625-bca7a56f405c",
+					"responses": []
+				},
+				{
+					"id": "4675d1cc-6587-bf80-1938-b83987ef57fb",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/persons",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"person\",\n\t\t\"attributes\": {\n\t\t\t\"first_name\": \"Josef\",\n\t\t\t\"middle_name\": \"Lynn\",\n\t\t\t\"last_name\": \"Stalin\",\n\t\t\t\"birth_day\": \"3\",\n\t\t\t\"birth_month_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\", \n\t\t\t\t\t\"id\": \"8\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"birth_year\": \"1895\",\n\t\t\t\"birth_era_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"death_day\": \"21\",\n\t\t\t\"death_month_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\",\n\t\t\t\t\t\"id\": \"3\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"death_year\": \"1952\",\n\t\t\t\"death_era_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"reference_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"reference\",\n\t\t\t\t\t\"id\": \"7\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580524338519,
+					"name": "Create Person With Reference",
+					"description": "",
+					"collectionId": "b1dcba73-279f-d13e-9625-bca7a56f405c",
+					"responses": []
+				},
+				{
+					"id": "65cef228-dd42-9970-82a9-90f0c59a62e5",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/persons/22",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "PATCH",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"person\",\n\t\t\"id\": \"22\",\n\t\t\"attributes\": {\n\t\t\t\"reference_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"reference\",\n\t\t\t\t\t\"id\": \"7\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580522680374,
+					"name": "Update Person",
+					"description": "",
+					"collectionId": "b1dcba73-279f-d13e-9625-bca7a56f405c",
+					"responses": []
+				},
+				{
+					"id": "840e73b2-94f3-91c2-f02f-718d9c9babda",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/persons",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580510249221,
+					"name": "Get All Persons",
+					"description": "",
+					"collectionId": "b1dcba73-279f-d13e-9625-bca7a56f405c",
+					"responses": []
+				},
+				{
+					"id": "d72c6016-a4d7-8591-f60d-a5f8ed238937",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/persons?include=birth_month,birth_era,death_month,death_era,reference",
+					"queryParams": [
+						{
+							"key": "include",
+							"value": "birth_month,birth_era,death_month,death_era,reference",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"person\",\n\t\t\"attributes\": {\n\t\t\t\"first_name\": \"Josef\",\n\t\t\t\"middle_name\": \"Lynn\",\n\t\t\t\"last_name\": \"Stalin\",\n\t\t\t\"birth_day\": \"3\",\n\t\t\t\"birth_month\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\", \n\t\t\t\t\t\"id\": \"8\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"birth_year\": \"1895\",\n\t\t\t\"birth_era\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"death_day\": \"21\",\n\t\t\t\"death_month\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\",\n\t\t\t\t\t\"id\": \"3\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"death_year\": \"1952\",\n\t\t\t\"death_era\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580347927076,
+					"name": "Create Person Without Reference",
+					"description": "",
+					"collectionId": "b1dcba73-279f-d13e-9625-bca7a56f405c",
+					"responses": []
+				},
+				{
+					"id": "f43fb038-c5bf-ac1f-3152-e64e9121850b",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/persons/18",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "DELETE",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580347799570,
+					"name": "Get Specific Person copy",
+					"description": "",
+					"collectionId": "b1dcba73-279f-d13e-9625-bca7a56f405c",
+					"responses": []
+				}
+			]
+		},
+		{
+			"id": "ea6df101-f17e-31cc-aac8-5f0440e51f6d",
+			"name": "Authors",
+			"description": "",
+			"order": [
+				"6d7eab63-2f2a-28d2-688c-a1868c5d9448",
+				"04522b51-843a-2617-0ecc-10c9e6d20ab0",
+				"4c4c9119-05c3-74e7-aeda-4e61a80bd745",
+				"69cbb0c7-cf50-960e-5a00-286db524c048",
+				"dc194bf6-2520-f274-8b21-c1f7fd6708aa"
+			],
+			"folders": [],
+			"folders_order": [],
+			"timestamp": 1578158529333,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"remoteLinkUpdatedAt": null,
+			"public": false,
+			"createdAt": 1578158529333,
+			"updatedAt": 1580171890913,
+			"write": true,
+			"published": false,
+			"favorite": true,
+			"permissions": {},
+			"syncedPermissions": {},
+			"requests": [
+				{
+					"id": "04522b51-843a-2617-0ecc-10c9e6d20ab0",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/authors/1?include=reference_author",
+					"queryParams": [
+						{
+							"key": "include",
+							"value": "reference_author",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578704816594,
+					"name": "Get Specific Author",
+					"description": "",
+					"collectionId": "ea6df101-f17e-31cc-aac8-5f0440e51f6d",
+					"responses": []
+				},
+				{
+					"id": "4c4c9119-05c3-74e7-aeda-4e61a80bd745",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/reference_authors/9/relationships/reference",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578170054137,
+					"name": "Get Reference Related to Author",
+					"description": "",
+					"collectionId": "ea6df101-f17e-31cc-aac8-5f0440e51f6d",
+					"responses": []
+				},
+				{
+					"id": "69cbb0c7-cf50-960e-5a00-286db524c048",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/authors",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"author\",\n\t\t\"attributes\": {\n\t\t\t\"first_name\": \"Mark\",\n\t\t\t\"middle_name\": \"\",\n\t\t\t\"last_name\": \"Lila\"\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580171890904,
+					"name": "Create Author",
+					"description": "",
+					"collectionId": "ea6df101-f17e-31cc-aac8-5f0440e51f6d",
+					"responses": []
+				},
+				{
+					"id": "6d7eab63-2f2a-28d2-688c-a1868c5d9448",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/authors",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578190761238,
+					"name": "List All Authors",
+					"description": "",
+					"collectionId": "ea6df101-f17e-31cc-aac8-5f0440e51f6d",
+					"responses": []
+				},
+				{
+					"id": "dc194bf6-2520-f274-8b21-c1f7fd6708aa",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/authors/9",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "DELETE",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578190854387,
+					"name": "Delete Reference Author",
+					"description": "",
+					"collectionId": "ea6df101-f17e-31cc-aac8-5f0440e51f6d",
+					"responses": []
+				}
+			]
+		},
+		{
+			"id": "f01c1ba4-815f-13cc-dfab-9c823dd50af1",
+			"name": "Events",
+			"description": "",
+			"order": [
+				"05137765-57b8-8c01-f626-1ac4dac781b4",
+				"6a616b24-5c34-66d1-2b5e-2f22304e2d06",
+				"efc3c280-0d07-a26a-ca0c-ac415f6a9368",
+				"229ff84c-12c6-f02b-a4d0-1d25c32975b3",
+				"fa27662c-1d2c-1457-eec8-90d9018265ef",
+				"9d7dd9f5-673c-e5b4-80dd-87afd6e9b752"
+			],
+			"folders": [],
+			"folders_order": [],
+			"timestamp": 1577209488948,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"remoteLinkUpdatedAt": null,
+			"public": false,
+			"createdAt": 1577209488948,
+			"updatedAt": 1581431538008,
+			"write": true,
+			"published": false,
+			"favorite": true,
+			"permissions": {},
+			"syncedPermissions": {},
+			"requests": [
+				{
+					"id": "05137765-57b8-8c01-f626-1ac4dac781b4",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/events",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"event\",\n\t\t\"attributes\": {\n\t\t\t\"label\": \"French Revolution\",\n\t\t\t\"description\": \"FR description placeholder.\",\n\t\t\t\"event_start_day\": \"4\",\n\t\t\t\"event_start_month_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\", \n\t\t\t\t\t\"id\": \"8\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"event_start_year\": \"1792\",\n\t\t\t\"event_start_era_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"event_end_day\": \"13\",\n\t\t\t\"event_end_month_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\", \n\t\t\t\t\t\"id\": \"3\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"event_end_year\": \"1804\",\n\t\t\t\"event_end_era_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"reference_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"reference\",\n\t\t\t\t\t\"id\": \"7\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580527747624,
+					"name": "Create Event",
+					"description": "",
+					"collectionId": "f01c1ba4-815f-13cc-dfab-9c823dd50af1",
+					"responses": []
+				},
+				{
+					"id": "229ff84c-12c6-f02b-a4d0-1d25c32975b3",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/events?sort=-event_start_year",
+					"queryParams": [
+						{
+							"key": "sort",
+							"value": "-event_start_year",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581362707351,
+					"name": "Get All Events - Sort Start Year",
+					"description": "",
+					"collectionId": "f01c1ba4-815f-13cc-dfab-9c823dd50af1",
+					"responses": []
+				},
+				{
+					"id": "6a616b24-5c34-66d1-2b5e-2f22304e2d06",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/event_notes",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"event_note\",\n\t\t\"attributes\": {\n\t\t\t\"note\": \"This is the third note.\",\n\t\t\t\"event_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"event\",\n\t\t\t\t\t\"id\": \"1\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580863971528,
+					"name": "Create Event Note",
+					"description": "",
+					"collectionId": "f01c1ba4-815f-13cc-dfab-9c823dd50af1",
+					"responses": []
+				},
+				{
+					"id": "9d7dd9f5-673c-e5b4-80dd-87afd6e9b752",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/events/11",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581431538003,
+					"name": "Get Specific Event",
+					"description": "",
+					"collectionId": "f01c1ba4-815f-13cc-dfab-9c823dd50af1",
+					"responses": []
+				},
+				{
+					"id": "efc3c280-0d07-a26a-ca0c-ac415f6a9368",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/events/11",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "PATCH",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"event\",\n\t\t\"id\": \"11\",\n\t\t\"attributes\": {\n\t\t\t\"label\": \"Portuguese Colonization of Brazil\",\n\t\t\t\"description\": \"The period where the Portuguese were colonizing what is modern day Brazil.\",\n\t\t\t\"event_start_day\": \"null\",\n\t\t\t\"event_start_month_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\",\n\t\t\t\t\t\"id\": \"null\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"event_start_year\": \"1500\",\n\t\t\t\"event_start_era_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"event_end_day\": \"null\",\n\t\t\t\"event_end_month_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\",\n\t\t\t\t\t\"id\": \"null\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"event_end_year\": \"1531\",\n\t\t\t\"event_end_era_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"reference_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"reference\",\n\t\t\t\t\t\"id\": \"48\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581456276130,
+					"name": "Patch Event",
+					"description": "",
+					"collectionId": "f01c1ba4-815f-13cc-dfab-9c823dd50af1",
+					"responses": []
+				},
+				{
+					"id": "fa27662c-1d2c-1457-eec8-90d9018265ef",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/events?sort=label",
+					"queryParams": [
+						{
+							"key": "sort",
+							"value": "label",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581430601210,
+					"name": "Get All Events - Sort Alphabetically",
+					"description": "",
+					"collectionId": "f01c1ba4-815f-13cc-dfab-9c823dd50af1",
+					"responses": []
+				}
+			]
+		},
+		{
+			"id": "f62404a4-28a6-3532-03d6-7b08a8f86dfd",
+			"name": "Timelines",
+			"description": "",
+			"order": [
+				"f8a5c2c8-e795-3e08-e042-d6e357ad8aa9",
+				"624ff51d-c61d-1445-8030-7082976e59d8",
+				"96bee149-eedf-0ae2-51d9-529669bd092a",
+				"2c83efcb-c1d4-3bc9-1eab-a4a2a0dd25b5",
+				"73ad7126-8cfe-fa05-dc62-17412c51af23",
+				"76075ea1-793d-8cf3-1e26-2c982e16c57f"
+			],
+			"folders": [],
+			"folders_order": [],
+			"timestamp": 1581013576522,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"remoteLinkUpdatedAt": null,
+			"public": false,
+			"createdAt": 1581013576522,
+			"updatedAt": 1582982996429,
+			"write": true,
+			"published": false,
+			"favorite": true,
+			"permissions": {},
+			"syncedPermissions": {},
+			"requests": [
+				{
+					"id": "2c83efcb-c1d4-3bc9-1eab-a4a2a0dd25b5",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/timelines",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581431486093,
+					"name": "Get All Timelines",
+					"description": "",
+					"collectionId": "f62404a4-28a6-3532-03d6-7b08a8f86dfd",
+					"responses": []
+				},
+				{
+					"id": "624ff51d-c61d-1445-8030-7082976e59d8",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/timeline_events",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"timeline_event\",\n\t\t\"attributes\": {\n\t\t\t\"timeline_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"id\": \"1\",\n\t\t\t\t\t\"type\": \"timeline\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"event_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"event\",\n\t\t\t\t\t\"id\": \"39\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581431489586,
+					"name": "Create Timeline Event",
+					"description": "",
+					"collectionId": "f62404a4-28a6-3532-03d6-7b08a8f86dfd",
+					"responses": []
+				},
+				{
+					"id": "73ad7126-8cfe-fa05-dc62-17412c51af23",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/timeline_events",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581094593150,
+					"name": "Get Timeline Events",
+					"description": "",
+					"collectionId": "f62404a4-28a6-3532-03d6-7b08a8f86dfd",
+					"responses": []
+				},
+				{
+					"id": "76075ea1-793d-8cf3-1e26-2c982e16c57f",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/timeline_events/1",
+					"queryParams": [],
+					"pathVariables": {},
+					"pathVariableData": [],
+					"preRequestScript": null,
+					"method": "GET",
+					"collectionId": "f62404a4-28a6-3532-03d6-7b08a8f86dfd",
+					"data": null,
+					"dataMode": "params",
+					"name": "Get Single Timeline Event",
+					"description": "",
+					"descriptionFormat": "html",
+					"time": 1582982996389,
+					"version": 2,
+					"responses": [],
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {}
+				},
+				{
+					"id": "96bee149-eedf-0ae2-51d9-529669bd092a",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/timelines/1",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581093079205,
+					"name": "Get Specific Timeline",
+					"description": "",
+					"collectionId": "f62404a4-28a6-3532-03d6-7b08a8f86dfd",
+					"responses": []
+				},
+				{
+					"id": "f8a5c2c8-e795-3e08-e042-d6e357ad8aa9",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/timelines",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"timeline\",\n\t\t\"attributes\": {\n\t\t\t\"label\": \"Master\"\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1581013633357,
+					"name": "Create Timeline",
+					"description": "",
+					"collectionId": "f62404a4-28a6-3532-03d6-7b08a8f86dfd",
+					"responses": []
+				}
+			]
+		},
+		{
+			"id": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+			"name": "References",
+			"description": "",
+			"order": [
+				"a7545bcb-b3b4-b771-0669-436a05cd9a98",
+				"973a66a6-0a5a-3408-8a9b-f3914c95ccbb",
+				"dbb9abf1-de64-94ab-502b-b80ce67d6b5a",
+				"902c6057-130f-d42b-f10d-000af7bdb804",
+				"fb94f306-428c-da38-3300-c754118ac933",
+				"2af9079b-7256-baa2-9c67-0d2027952cf1",
+				"27d8c747-5187-58db-4b6d-a94db816d4ba",
+				"6b836f47-c1c6-8955-3bed-a96da69d61c3",
+				"8eae6996-3f56-00e4-e74c-3bd20443410d"
+			],
+			"folders": [],
+			"folders_order": [],
+			"timestamp": 1577573116283,
+			"synced": false,
+			"remote_id": 0,
+			"owner": 0,
+			"sharedWithTeam": false,
+			"subscribed": false,
+			"remoteLink": "",
+			"remoteLinkUpdatedAt": null,
+			"public": false,
+			"createdAt": 1577573116283,
+			"updatedAt": 1581039745448,
+			"write": true,
+			"published": false,
+			"favorite": true,
+			"permissions": {},
+			"syncedPermissions": {},
+			"requests": [
+				{
+					"id": "27d8c747-5187-58db-4b6d-a94db816d4ba",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "POST",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"reference\",\n\t\t\"attributes\": {\n\t\t\t\"title\": \"Homo Deus\",\n\t\t\t\"published_day\": \"2\",\n\t\t\t\"published_month_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"month\", \n\t\t\t\t\t\"id\": \"8\"\n\t\t\t\t}\n\t\t\t},\n\t\t\t\"published_year\": \"2017\",\n\t\t\t\"published_era_rel\": {\n\t\t\t\t\"data\": {\n\t\t\t\t\t\"type\": \"era\",\n\t\t\t\t\t\"id\": \"2\"\n\t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580505905210,
+					"name": "Create Reference",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				},
+				{
+					"id": "2af9079b-7256-baa2-9c67-0d2027952cf1",
+					"headers": "Accept: application/vnd.api+json\nContent-Type: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references/1",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "PATCH",
+					"data": "{\n\t\"data\": {\n\t\t\"type\": \"reference\",\n\t\t\"id\": \"1\",\n\t\t\"attributes\": {\n\t\t\t\"title\": \"Homo Deus\"\n\t\t}\n\t}\n}",
+					"dataMode": "raw",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578160249803,
+					"name": "http://localhost:5000/references",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				},
+				{
+					"id": "6b836f47-c1c6-8955-3bed-a96da69d61c3",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references/20",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "DELETE",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1579135388573,
+					"name": "http://localhost:5000/references/2",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				},
+				{
+					"id": "8eae6996-3f56-00e4-e74c-3bd20443410d",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references/8?include=published_era,published_month,reference_author",
+					"queryParams": [
+						{
+							"key": "include",
+							"value": "published_era,published_month,reference_author",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578690844733,
+					"name": "Get Specific Reference with Included Data",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				},
+				{
+					"id": "902c6057-130f-d42b-f10d-000af7bdb804",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references/7/relationships/published_month",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578190143460,
+					"name": "Get Reference Month",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				},
+				{
+					"id": "973a66a6-0a5a-3408-8a9b-f3914c95ccbb",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references/7",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580502431274,
+					"name": "Get Specific Reference",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				},
+				{
+					"id": "a7545bcb-b3b4-b771-0669-436a05cd9a98",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references?include=reference_author_rel",
+					"queryParams": [
+						{
+							"key": "include",
+							"value": "reference_author_rel",
+							"equals": true,
+							"description": "",
+							"enabled": true
+						}
+					],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1580501692143,
+					"name": "Get All References",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				},
+				{
+					"id": "dbb9abf1-de64-94ab-502b-b80ce67d6b5a",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references/3/relationships/reference_author",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578180871360,
+					"name": "Get Reference Authors",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				},
+				{
+					"id": "fb94f306-428c-da38-3300-c754118ac933",
+					"headers": "Accept: application/vnd.api+json\n",
+					"headerData": [
+						{
+							"key": "Accept",
+							"value": "application/vnd.api+json",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"url": "http://localhost:5000/references/7/relationships/published_era",
+					"queryParams": [],
+					"preRequestScript": null,
+					"pathVariables": {},
+					"pathVariableData": [],
+					"method": "GET",
+					"data": null,
+					"dataMode": "params",
+					"version": 2,
+					"tests": null,
+					"currentHelper": "normal",
+					"helperAttributes": {},
+					"time": 1578190148558,
+					"name": "Get Reference Era",
+					"description": "",
+					"collectionId": "dd157f70-3234-2589-1ca6-efe76c0d7564",
+					"responses": []
+				}
+			]
+		}
+	],
+	"environments": [],
+	"headerPresets": [],
+	"globals": []
+}
