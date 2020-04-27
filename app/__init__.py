@@ -26,6 +26,12 @@ def create_api(flask_app):
     from app.schemas.person import PersonList, PersonDetail
     from app.schemas.person import PersonTagList, PersonTagDetail
     from app.schemas.person import PersonNoteList, PersonNoteDetail
+    from app.schemas.essay import EssayList, EssayDetail
+    from app.schemas.essay import EssayNoteList, EssayNoteDetail
+    from app.schemas.essay import EssayReferenceList, EssayReferenceDetail
+    from app.schemas.essay import EssayEventList, EssayEventDetail
+    from app.schemas.essay import EssayPersonList, EssayPersonDetail
+    from app.schemas.essay import EssayTimelineList, EssayTimelineDetail
     from app.schemas.tag import TagList, TagDetail
 
     from app.schemas.timeline import TimelineList, TimelineDetail
@@ -78,6 +84,30 @@ def create_api(flask_app):
     # PERSON NOTE ROUTES
     api.route(PersonNoteList, 'person_note_list', '/person_notes')
     api.route(PersonNoteDetail, 'person_note_detail', '/person_notes/<int:id>')
+
+    # ESSAY ROUTES
+    api.route(EssayList, 'essay_list', '/essays')
+    api.route(EssayDetail, 'essay_detail', '/essays/<int:id>')
+
+    # ESSAY REFERENCE ROUTES
+    api.route(EssayReferenceList, 'essay_reference_list', '/essay_references')
+    api.route(EssayReferenceDetail, 'essay_reference_detail', '/essay_references/<int:id>')
+
+    # ESSAY EVENT ROUTES
+    api.route(EssayEventList, 'essay_event_list', '/essay_events')
+    api.route(EssayEventDetail, 'essay_event_detail', '/essay_events/<int:id>')
+
+    # ESSAY PERSON ROUTES
+    api.route(EssayPersonList, 'essay_person_list', '/essay_persons')
+    api.route(EssayPersonDetail, 'essay_person_detail', '/essay_persons/<int:id>')
+
+    # ESSAY TIMELINE ROUTES
+    api.route(EssayTimelineList, 'essay_timeline_list', '/essay_timelines')
+    api.route(EssayTimelineDetail, 'essay_timeline_detail', '/essay_timelines/<int:id>')
+
+    # ESSAY NOTE ROUTES
+    api.route(EssayNoteList, 'essay_note_list', '/essay_notes')
+    api.route(EssayNoteDetail, 'essay_note_detail', '/essay_notes/<int:id>')
 
     # TIMELINE ROUTES
     api.route(TimelineList, 'timeline_list', '/timelines')

@@ -118,6 +118,228 @@ ALTER SEQUENCE era_id_seq OWNED BY era.id;
 
 
 --
+-- Name: essay; Type: TABLE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE TABLE essay (
+    id integer NOT NULL,
+    created timestamp without time zone,
+    modified timestamp without time zone,
+    title character varying NOT NULL,
+    abstract text,
+    essay text
+);
+
+
+ALTER TABLE essay OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_event; Type: TABLE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE TABLE essay_event (
+    id integer NOT NULL,
+    created timestamp without time zone,
+    modified timestamp without time zone,
+    essay_fk integer,
+    event_fk integer
+);
+
+
+ALTER TABLE essay_event OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_event_id_seq; Type: SEQUENCE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE SEQUENCE essay_event_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE essay_event_id_seq OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_event_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER SEQUENCE essay_event_id_seq OWNED BY essay_event.id;
+
+
+--
+-- Name: essay_id_seq; Type: SEQUENCE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE SEQUENCE essay_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE essay_id_seq OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER SEQUENCE essay_id_seq OWNED BY essay.id;
+
+
+--
+-- Name: essay_note; Type: TABLE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE TABLE essay_note (
+    id integer NOT NULL,
+    created timestamp without time zone,
+    modified timestamp without time zone,
+    note character varying,
+    reference_chapter character varying,
+    reference_page integer,
+    essay_fk integer,
+    reference_fk integer
+);
+
+
+ALTER TABLE essay_note OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_note_id_seq; Type: SEQUENCE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE SEQUENCE essay_note_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE essay_note_id_seq OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_note_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER SEQUENCE essay_note_id_seq OWNED BY essay_note.id;
+
+
+--
+-- Name: essay_person; Type: TABLE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE TABLE essay_person (
+    id integer NOT NULL,
+    created timestamp without time zone,
+    modified timestamp without time zone,
+    essay_fk integer,
+    person_fk integer
+);
+
+
+ALTER TABLE essay_person OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_person_id_seq; Type: SEQUENCE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE SEQUENCE essay_person_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE essay_person_id_seq OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_person_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER SEQUENCE essay_person_id_seq OWNED BY essay_person.id;
+
+
+--
+-- Name: essay_reference; Type: TABLE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE TABLE essay_reference (
+    id integer NOT NULL,
+    created timestamp without time zone,
+    modified timestamp without time zone,
+    chapter character varying,
+    page integer,
+    essay_fk integer,
+    reference_fk integer
+);
+
+
+ALTER TABLE essay_reference OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_reference_id_seq; Type: SEQUENCE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE SEQUENCE essay_reference_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE essay_reference_id_seq OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_reference_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER SEQUENCE essay_reference_id_seq OWNED BY essay_reference.id;
+
+
+--
+-- Name: essay_timeline; Type: TABLE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE TABLE essay_timeline (
+    id integer NOT NULL,
+    created timestamp without time zone,
+    modified timestamp without time zone,
+    essay_fk integer,
+    timeline_fk integer
+);
+
+
+ALTER TABLE essay_timeline OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_timeline_id_seq; Type: SEQUENCE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE SEQUENCE essay_timeline_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE essay_timeline_id_seq OWNER TO adrianadelacuadra;
+
+--
+-- Name: essay_timeline_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER SEQUENCE essay_timeline_id_seq OWNED BY essay_timeline.id;
+
+
+--
 -- Name: event; Type: TABLE; Schema: public; Owner: adrianadelacuadra
 --
 
@@ -465,6 +687,44 @@ ALTER SEQUENCE reference_id_seq OWNED BY reference.id;
 
 
 --
+-- Name: reference_note; Type: TABLE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE TABLE reference_note (
+    id integer NOT NULL,
+    created timestamp without time zone,
+    modified timestamp without time zone,
+    note character varying NOT NULL,
+    chapter character varying,
+    page integer,
+    reference_fk integer
+);
+
+
+ALTER TABLE reference_note OWNER TO adrianadelacuadra;
+
+--
+-- Name: reference_note_id_seq; Type: SEQUENCE; Schema: public; Owner: adrianadelacuadra
+--
+
+CREATE SEQUENCE reference_note_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE reference_note_id_seq OWNER TO adrianadelacuadra;
+
+--
+-- Name: reference_note_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER SEQUENCE reference_note_id_seq OWNED BY reference_note.id;
+
+
+--
 -- Name: tag; Type: TABLE; Schema: public; Owner: adrianadelacuadra
 --
 
@@ -731,6 +991,48 @@ ALTER TABLE ONLY era ALTER COLUMN id SET DEFAULT nextval('era_id_seq'::regclass)
 
 
 --
+-- Name: essay id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay ALTER COLUMN id SET DEFAULT nextval('essay_id_seq'::regclass);
+
+
+--
+-- Name: essay_event id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_event ALTER COLUMN id SET DEFAULT nextval('essay_event_id_seq'::regclass);
+
+
+--
+-- Name: essay_note id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_note ALTER COLUMN id SET DEFAULT nextval('essay_note_id_seq'::regclass);
+
+
+--
+-- Name: essay_person id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_person ALTER COLUMN id SET DEFAULT nextval('essay_person_id_seq'::regclass);
+
+
+--
+-- Name: essay_reference id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_reference ALTER COLUMN id SET DEFAULT nextval('essay_reference_id_seq'::regclass);
+
+
+--
+-- Name: essay_timeline id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_timeline ALTER COLUMN id SET DEFAULT nextval('essay_timeline_id_seq'::regclass);
+
+
+--
 -- Name: event id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
 --
 
@@ -794,6 +1096,13 @@ ALTER TABLE ONLY reference_author ALTER COLUMN id SET DEFAULT nextval('reference
 
 
 --
+-- Name: reference_note id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY reference_note ALTER COLUMN id SET DEFAULT nextval('reference_note_id_seq'::regclass);
+
+
+--
 -- Name: tag id; Type: DEFAULT; Schema: public; Owner: adrianadelacuadra
 --
 
@@ -847,7 +1156,7 @@ ALTER TABLE ONLY timeline_person ALTER COLUMN id SET DEFAULT nextval('timeline_p
 --
 
 COPY alembic_version (version_num) FROM stdin;
-1c756d0ea25c
+e7246fe2c2b3
 \.
 
 
@@ -891,6 +1200,96 @@ COPY era (id, created, modified, label) FROM stdin;
 --
 
 SELECT pg_catalog.setval('era_id_seq', 2, true);
+
+
+--
+-- Data for Name: essay; Type: TABLE DATA; Schema: public; Owner: adrianadelacuadra
+--
+
+COPY essay (id, created, modified, title, abstract, essay) FROM stdin;
+\.
+
+
+--
+-- Data for Name: essay_event; Type: TABLE DATA; Schema: public; Owner: adrianadelacuadra
+--
+
+COPY essay_event (id, created, modified, essay_fk, event_fk) FROM stdin;
+\.
+
+
+--
+-- Name: essay_event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
+--
+
+SELECT pg_catalog.setval('essay_event_id_seq', 4, true);
+
+
+--
+-- Name: essay_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
+--
+
+SELECT pg_catalog.setval('essay_id_seq', 3, true);
+
+
+--
+-- Data for Name: essay_note; Type: TABLE DATA; Schema: public; Owner: adrianadelacuadra
+--
+
+COPY essay_note (id, created, modified, note, reference_chapter, reference_page, essay_fk, reference_fk) FROM stdin;
+\.
+
+
+--
+-- Name: essay_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
+--
+
+SELECT pg_catalog.setval('essay_note_id_seq', 7, true);
+
+
+--
+-- Data for Name: essay_person; Type: TABLE DATA; Schema: public; Owner: adrianadelacuadra
+--
+
+COPY essay_person (id, created, modified, essay_fk, person_fk) FROM stdin;
+\.
+
+
+--
+-- Name: essay_person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
+--
+
+SELECT pg_catalog.setval('essay_person_id_seq', 3, true);
+
+
+--
+-- Data for Name: essay_reference; Type: TABLE DATA; Schema: public; Owner: adrianadelacuadra
+--
+
+COPY essay_reference (id, created, modified, chapter, page, essay_fk, reference_fk) FROM stdin;
+\.
+
+
+--
+-- Name: essay_reference_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
+--
+
+SELECT pg_catalog.setval('essay_reference_id_seq', 4, true);
+
+
+--
+-- Data for Name: essay_timeline; Type: TABLE DATA; Schema: public; Owner: adrianadelacuadra
+--
+
+COPY essay_timeline (id, created, modified, essay_fk, timeline_fk) FROM stdin;
+\.
+
+
+--
+-- Name: essay_timeline_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
+--
+
+SELECT pg_catalog.setval('essay_timeline_id_seq', 3, true);
 
 
 --
@@ -1109,26 +1508,23 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 222	2020-03-16 15:59:45.62385	2020-03-16 15:59:45.62385	Stalin Becomes General Secretary	\N	\N	2	\N	\N	2	\N	48	1922	1922
 220	2020-03-16 14:58:09.15908	2020-03-16 16:22:57.311069	USSR Founded	After the civil war, the country was in tatters. Around 6 million peasants had died from famine between 1921 and 1922, and there was rioting in many cities. Lenin suffered a stroke in May 1922. In December 1922, the Union of Soviet Socialist Republics (USSR) was established, based on one-party rule. Lenin died in 1924, worried about political infighting in this party. His legacy, however, was the world's first socialist state.	\N	2	12	\N	2	12	48	1922	1922
 256	2020-03-23 20:15:08.227225	2020-03-23 20:15:08.227225	The Battle of Karbala	By this time most Shia's had just accepted that the succession of Islam would be passed from caliph to another via the counsel and selection of wise men. This is the side the Sunnis adhere to. At this time a caliph passed the reins to his son, Yazid. There was wide discontent with this act of nepotism, and Imam Hussein rebelled against the injustice, facing off with his followers against the army of Yazid. In this battle Imam Hussein dies. His death helped crystallize what was still a nascent Shia identity. 	\N	2	\N	\N	2	\N	56	680	680
-226	2020-03-16 17:13:29.874209	2020-03-18 18:51:37.592799	1st Soviet Famine	"War Communism" is implemented by Stalin with the idea of battling economic disruption and building a new economy. In reality this brought back food confiscation, grain requisitions, and the poor peasant's committees (Komnezamy) in Ukraine to strengthen the hand against the wealthier peasants and to ensure some control over the village councils. As a result, the peasants sowed far less land in both Ukraine and Russia in the spring of 1920 than they had at any time in the recent past. This in addition to a severe drought created the atmosphere for the famine.	\N	2	\N	\N	2	\N	59	1921	1923
+230	2020-03-16 18:02:21.405669	2020-03-17 19:59:29.832918	Major Soviet Foreign Espionage Setback	At the same time that major Soviet espionage operations are uncovered in London, Poland, Turkey, China and France, among other places, the Kremlin focuses on other non-existent spy networks. All of these incidents made the USSR paranoid of a world-conspiracy against them. The accompanied propaganda targets the Soviet society  to prepare it for wartime conditions and more austerity, seeking to also inspire greater loyalty to the communist system.	\N	2	\N	\N	2	\N	55	1927	1927
 224	2020-03-16 16:55:15.184062	2020-03-16 16:55:15.184062	Gulags	Gulags (concentration camps for prisoners) were created under Lenin but proliferated under Stalin. They housed a range of convicts, who were exploited to open up remote and forbidding areas of the country, such as the Arctic north and the Siberian east. The population of the gulag camps reached its height in the late 1940s, but the system was run down under Stalin's successors.	\N	2	\N	\N	2	\N	48	1917	1953
 225	2020-03-16 16:58:27.692029	2020-03-16 16:58:27.692029	Collectivization	Stalin deemed Soviet agricultural methods outdated, as they produced tool little food for a growing urban population. From 1927, Stalin instigated collectivization, uniting small farms into larger collectives. Food production eventually grew, and labor was freed for industry. Few farms volunteered, and terror was used to coerce them into handling over their land. Millions where starved, persecuted, or sent to gulags. By 1939, 99% of land was collectivized.	\N	2	\N	\N	2	\N	48	1927	1953
 223	2020-03-16 16:10:42.014202	2020-03-16 17:40:46.20834	Bolshevik Revolution	When Lenin returned to Russia in fall 1917, having been in hiding in Finland, he urged immediate action. The Red Guards seized control of Petrograd, and on October 26, 1917, guards at the Winter Palace –the seat of the Provisional Government–  willingly surrendered. Power passed to the Bolsheviks, with Lenin establishing a Marxist one-party state after closing down the Russian Constituent Assembly in January 1918.	\N	2	\N	\N	2	\N	48	1917	1921
 229	2020-03-16 17:50:50.510102	2020-03-16 17:50:50.510102	The Cheka	The original soviet secret police.	\N	2	\N	\N	2	\N	57	1917	1924
 221	2020-03-16 15:12:50.529323	2020-03-18 19:20:28.97641	1st Ukrainian Peasant Revolt	The Ukrainian peasants pursued freedom from the State. They wanted socialism without Bolshevism. Tens of thousands of rural Ukrainians wanted a socialist revolution but not the centralized power and repression emanating from Moscow. The terms "Communists", the "Red Army" and "Bolsheviks" where all confused at the time by the peasants who felt some where giving away land and others taking away grain. What was clear was that Ukrainian peasants had wanted one form of revolution, but had got something else together.	\N	2	\N	\N	2	\N	55	1918	1920
-230	2020-03-16 18:02:21.405669	2020-03-17 19:59:29.832918	Major Soviet Foreign Espionage Setback	At the same time that major Soviet espionage operations are uncovered in London, Poland, Turkey, China and France, among other places, the Kremlin focuses on other non-existent spy networks. All of these incidents made the USSR paranoid of a world-conspiracy against them. The accompanied propaganda targets the Soviet society  to prepare it for wartime conditions and more austerity, seeking to also inspire greater loyalty to the communist system.	\N	2	\N	\N	2	\N	59	1927	1927
 258	2020-03-24 21:06:00.792991	2020-03-24 21:06:00.792991	World War II	\nA European and Asian conflict that became a global war, WWII was the most brutal conflict in History, engulfing the world in a struggle over ideology and national sovereignty. It was the costliest war in terms of life (at least 55 million people were killed in battle, in concentration camps, and in bombed-out cities.) 	\N	2	\N	\N	2	\N	48	1939	1945
 228	2020-03-16 17:49:42.613338	2020-03-21 22:03:17.090749	The OGPU	The OGPU (Joint State Political Directorate) was the secret police of the Soviet Union from 1923 to 1934. This was used to exercise control over state security and evolved from the original "Cheka" (1917-1922). The OGPU's powers increased greatly in 1926, when the Soviet criminal code was amended to include a section on anti-state terrorism.	\N	2	\N	\N	2	\N	57	1923	1934
 259	2020-03-24 21:17:06.713702	2020-03-24 21:17:06.713702	Holodomor	Holodomor ("Death by Hunger") was a political famine, created for the express purpose of weakening peasant resistance, and thus national identity in the Ukraine.	\N	2	\N	\N	2	\N	55	1932	1934
-260	2020-03-24 21:19:04.75145	2020-03-24 21:19:04.75145	Requisitions of vegetables are removed	\N	\N	2	\N	\N	2	\N	59	1934	1934
 261	2020-03-24 21:28:11.472522	2020-03-24 21:28:11.472522	The Great Terror	Fearful of dissent, Stalin launched a campaign of terror to wipe out anyone who would impose him. During this period the gulag concentration camp system was expanded, with hundreds of thousands executed after a brief trial.	\N	2	\N	\N	2	\N	48	1936	1938
 262	2020-04-01 19:39:11.337111	2020-04-01 19:39:11.337111	Imam Sadr Speaks In Baalbek	Musa Al-Sadr travelled to Baalbek in south Lebanon to raise awareness of the Shia plight. Approximately 75,000 men showed up from everywhere around Lebanon to see the cleric speak.	\N	2	3	\N	2	3	56	1974	1974
 263	2020-04-01 20:16:41.379564	2020-04-01 20:16:41.379564	Beginning Of The Iranian Pahlavi Dynasty	With help from the British, Reza Shah, a brigadier general in the Persian Cossack army, had put an end to two centuries of Qajar dynasty.	\N	2	\N	\N	2	\N	56	1925	1925
 264	2020-04-01 20:20:22.53393	2020-04-01 20:20:22.53393	Iranian Pahlavi Dynasty	The Iranian Pahlavi dynasty began with the rise of Reza Shah to leadership of the Iranian Persian empire. In 1941 the Shah abdicated making his son Shah Mohammad Reza Pahlavi the new Shah. He would be ousted in 1979 during the Iranian Revolution.	\N	2	\N	\N	2	\N	56	1925	1979
 265	2020-04-01 20:23:21.999154	2020-04-01 20:23:21.999154	Launch Of The Iranian White Revolution	This was a program of reforms launched by Shah Mohammad Reza Pahlavi.	\N	2	\N	\N	2	\N	56	1963	1963
 266	2020-04-01 20:25:59.988622	2020-04-01 20:25:59.988622	Reign Of Reza Shah Pahlavi	Reza Shah Pahlavi is the first Shah of the Pahlavi dynasty. He comes into power with the help of the British ending two centuries of Qajar dynasty.	\N	2	\N	\N	2	\N	56	1925	1941
+260	2020-03-24 21:19:04.75145	2020-03-24 21:19:04.75145	Requisitions of vegetables are removed	\N	\N	2	\N	\N	2	\N	55	1934	1934
 231	2020-03-16 18:21:31.412483	2020-03-17 20:00:41.371058	New Economic Policy 	Economic policy proposed by Lenin who described it as a progression towards "state capitalism" within the workers' state of the USSR. Lenin characterized "state capitalism" and his NEP policies in 1922 as an economic system that would include "a free market and capitalism, both subject to state control" while socialized state enterprises were to operate on "a profit basis". 	\N	2	\N	\N	2	\N	57	1922	1927
-227	2020-03-16 17:42:02.427663	2020-03-18 18:50:13.516216	The Double Crisis	Two policies face crisis as the Soviet rule approaches their 10th year anniversary: The New Economic Policy (NEP) and the “Ukrainization”. The NEP allowed a certain degree of private property and free trading, while the “Ukrainization” had the mission to covert Ukrainians Nationals into Communism and draw them into Soviet power by supporting Ukrainian culture and language. In the first case, agricultural production was in crisis due to a contradiction the system imposed: a productive peasant made him a “Kulak” (the enemy of the people), an unproductive one made him a “Bedniak” (a poor peasant). In the second case,  nationalists were not placated and instead demanded more rapid change including questioning the primacy of Moscow altogether.	\N	2	\N	\N	2	\N	59	1927	1929
-232	2020-03-16 18:29:54.882487	2020-03-18 19:00:29.822839	Five-Year Plan	An economic programme that mandated a massive, unprecedented 20% annual increase in industrial output, the adoption of the seven-day week (workers would rest in shifts, so that factories would never have to close) and a new ethic workplace competition. 	\N	2	\N	\N	2	\N	59	1928	1933
 240	2020-03-18 20:04:11.248679	2020-03-18 20:04:47.059908	"Glasnost" (openess) policy	Glasnost (openness) was one of Mikhail Gorvachev's policies to bring to light government corruption. In practice it encouraged people to denounce injustices in a more broad and open way.	\N	2	\N	\N	2	\N	55	1985	1985
 238	2020-03-18 19:22:53.54933	2020-03-18 19:29:07.55323	2nd Soviet Countryside Revolution	In just a few months during the winter of 1929-30 the Soviet state carried out a second revolution in the countryside, for many more shocking than the original Bolshevik revolution itself. All across the USSR, local leaders, successful farmers, priests and village elders were deposed, expropriated, arrested or deported. Entire village populations were forced to give up their land, their livestock, and sometimes their homes in order to join collective farms. Churches were destroyed, icons smashed and bells broken.	\N	2	\N	\N	2	\N	55	1929	1930
 241	2020-03-18 20:06:22.09266	2020-03-18 20:07:36.168297	"Perestroika" (reconstruction) policy	Perestroika (reconstruction) was one of Mikhail Gorvachev's policies to unite socialism with democracy and bring Russia closer to the US and Europe.	\N	2	\N	\N	2	\N	48	1985	1985
@@ -1137,7 +1533,7 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 245	2020-03-18 20:41:17.357644	2020-03-18 20:41:17.357644	West Germany joins NATO	In response the Warsaw pact is signed.	\N	2	\N	\N	2	\N	48	1955	1955
 250	2020-03-23 18:34:06.210907	2020-03-23 18:34:06.210907	Sayyid Khomeini Is Exiled From Iran	While in Iran Khomeini had agitated against the Shah. This earned him exile to Najaf, Iraq.	\N	2	\N	\N	2	\N	56	1965	1978
 251	2020-03-23 18:47:59.095174	2020-03-23 18:47:59.095174	Saigon, Vietnam Falls To Communist Forces	\N	\N	2	4	\N	2	4	56	1975	1975
-239	2020-03-18 19:49:10.780598	2020-03-19 15:37:55.151911	The "Politburo" sets a new target: 80% farms must join collective farms	This aggressive goal meant that it would require the "liquidation of the kulaks as a class". Pressure on the peasants continued: taxes on peasants who remained in their property were high, deportations to fast-expanding Gulags increased, food shortages became permanent.	\N	2	\N	\N	2	\N	59	1930	1930
+232	2020-03-16 18:29:54.882487	2020-03-18 19:00:29.822839	Five-Year Plan	An economic programme that mandated a massive, unprecedented 20% annual increase in industrial output, the adoption of the seven-day week (workers would rest in shifts, so that factories would never have to close) and a new ethic workplace competition. 	\N	2	\N	\N	2	\N	55	1928	1933
 252	2020-03-23 18:56:49.25475	2020-03-23 18:56:49.25475	Origins Of The Shia Muslims	After the death of the Prophet Muhammad one set of followers had chosen Ali, the cousin of the prophet and husband of his daughter Fatima, as the rightful heir of Islam. Afterwards this group would become known as the "Partisans of Ali", or "shi'at Ali".	\N	2	\N	\N	2	\N	56	633	633
 253	2020-03-23 18:59:31.760566	2020-03-23 18:59:31.760566	Origins Of The Sunni Muslims	After the death of the Prophet Muhammad one set of followers believed that the prophet had named Abu Bakr, a close companion of the prophet, as his successor and the first caliph of the Muslim nation. Those who fell into this line of succession were the Sunnis.	\N	2	\N	\N	2	\N	56	633	633
 248	2020-03-21 21:49:35.198215	2020-03-21 22:02:08.724069	The NKDV	The NKDV (People's Commissariat for Internal Affairs) was a law enforcement agency of the Soviet Union. It conducted mass extrajudicial executions, ran the Gulag system and suppressed underground resistance, and was also responsible for mass deportations of entire nationalities and Kulaks to unpopulated regions of the country.	\N	2	\N	\N	2	\N	57	1934	1946
@@ -1171,7 +1567,7 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 289	2020-04-08 16:53:52.60353	2020-04-08 16:53:52.60353	James Edward Stuart Attempts To Seize The Throne	The English throne was seized in 1688 by William of Orange and Protestantism became the rule. James Stuart (The Old Pretender) attempts to seize back the throne to restore the Stuart dynasty. The rebellion was doomed and he was not able to restore the dynasty.	\N	2	\N	\N	2	\N	63	1715	1715
 291	2020-04-08 17:05:53.055496	2020-04-08 17:05:53.055496	Charles Edward Stuart Arrive In Manchester England	The "Young Pretender" arrived in Manchester probably because there were a number there with Catholic sympathies. However, most were wary of an amateur Scottish army taking on the army of England. Nonetheless, he goes to Manchester and does manage to recruit some supporters before marching on to Derby on December 1st.	1	2	12	28	2	11	63	1745	1745
 292	2020-04-08 17:11:34.484731	2020-04-08 17:11:34.484731	Ann Lee Becomes A Cook At The Manchester Infirmary	The Manchester Infirmary had expanded into it's own building during this time. The Infirmary was a large part of Manchester life at the time. It had three visiting surgeons and three physicians.	\N	2	\N	\N	2	\N	63	1755	1755
-321	2020-04-11 20:24:58.236284	2020-04-11 20:44:10.296014	Hittite Reign Of King Suppiluliuma I	Was king of the Hittite empire during the late bronze age. He helped to reinvigorate the waning Hittite empire and regain control of Anatolia.	\N	1	\N	\N	1	\N	62	1344	1322
+226	2020-03-16 17:13:29.874209	2020-03-18 18:51:37.592799	1st Soviet Famine	"War Communism" is implemented by Stalin with the idea of battling economic disruption and building a new economy. In reality this brought back food confiscation, grain requisitions, and the poor peasant's committees (Komnezamy) in Ukraine to strengthen the hand against the wealthier peasants and to ensure some control over the village councils. As a result, the peasants sowed far less land in both Ukraine and Russia in the spring of 1920 than they had at any time in the recent past. This in addition to a severe drought created the atmosphere for the famine.	\N	2	\N	\N	2	\N	55	1921	1923
 306	2020-04-09 19:50:49.734228	2020-04-09 19:51:26.635064	Egyptian Reign of Pharaoh Amenhotep III	\N	\N	1	\N	\N	1	\N	62	1391	1353
 307	2020-04-11 17:37:39.864766	2020-04-11 17:37:39.864766	Egyptian Reign of Pharaoh Amenhotep IV	Known after the fifth year of his reign as Akhenaten. He would also be known as the Heretic Pharaoh. He banned all Gods and Goddesses except for the god Aten who he alone could communicate. All Egyptians would therefore pray to Akhenaten who would then pray to Aten on their behalf. 	\N	1	\N	\N	1	\N	62	1353	1334
 293	2020-04-08 20:16:39.097092	2020-04-08 20:22:03.541349	The German Army Retreats	A total silence was felt when this occurred, even in the cities like Warsaw that where already completely destroyed in the 2nd World War.	16	2	1	16	2	1	54	1945	1945
@@ -1203,7 +1599,39 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 319	2020-04-11 20:13:14.171807	2020-04-11 20:13:14.171807	The Mycenaean Empire	\N	\N	1	\N	\N	1	\N	62	1600	1100
 320	2020-04-11 20:15:06.222329	2020-04-11 20:15:06.222329	The Ancient Egyptian Empire	\N	\N	1	\N	\N	1	\N	62	3050	653
 322	2020-04-11 20:28:20.014107	2020-04-11 20:28:20.014107	The Bronze Age	\N	\N	1	\N	\N	1	\N	62	3000	1200
-323	2020-04-11 20:45:37.983983	2020-04-11 20:45:37.983983	Hittite Reign Of King Mursili II	Was the son of King Suppiluliuma.	\N	1	\N	\N	1	\N	62	1321	1295
+323	2020-04-11 20:45:37.983983	2020-04-13 10:12:45.8241	Hittite Reign Of King Mursili II	Was the son of King Suppiluliuma.	\N	1	\N	\N	1	\N	62	1321	1295
+321	2020-04-11 20:24:58.236284	2020-04-15 20:34:05.750299	Hittite Reign Of King Suppiluliuma I	Was king of the Hittite empire during the late bronze age. He helped to reinvigorate the waning Hittite empire and regain control of Anatolia. He likely died of the plague brought to the Hittite population from Egyptian prisoners of war.	\N	1	\N	\N	1	\N	62	1344	1322
+227	2020-03-16 17:42:02.427663	2020-03-18 18:50:13.516216	The Double Crisis	Two policies face crisis as the Soviet rule approaches their 10th year anniversary: The New Economic Policy (NEP) and the “Ukrainization”. The NEP allowed a certain degree of private property and free trading, while the “Ukrainization” had the mission to covert Ukrainians Nationals into Communism and draw them into Soviet power by supporting Ukrainian culture and language. In the first case, agricultural production was in crisis due to a contradiction the system imposed: a productive peasant made him a “Kulak” (the enemy of the people), an unproductive one made him a “Bedniak” (a poor peasant). In the second case,  nationalists were not placated and instead demanded more rapid change including questioning the primacy of Moscow altogether.	\N	2	\N	\N	2	\N	55	1927	1929
+239	2020-03-18 19:49:10.780598	2020-03-19 15:37:55.151911	The "Politburo" sets a new target: 80% farms must join collective farms	This aggressive goal meant that it would require the "liquidation of the kulaks as a class". Pressure on the peasants continued: taxes on peasants who remained in their property were high, deportations to fast-expanding Gulags increased, food shortages became permanent.	\N	2	\N	\N	2	\N	55	1930	1930
+329	2020-04-23 16:38:00.653136	2020-04-23 16:38:00.653136	Reign of Ugarit King Ammistamru	Ugarit was an ancient port city at what is today called Ras Shamra in northern Syria. While it's own independent state it is believed to have had close connections with the Hittite empire and maintained both trade and diplomatic relationships with other empires of time. In the 13th century King Ammistamru is recorded as being king.	\N	1	\N	\N	1	\N	62	1260	1235
+330	2020-04-23 17:41:06.258589	2020-04-23 17:43:09.553065	The Battle Of Qadesh	The city of Qadesh was a border location between the Hittite and Egyptian Empires. Muwattalli, the Hittite king, was attempting to expand the Hittite Empire farther south into Canaan. Ramses II of Egypt was determined to keep the border at Qadesh. This set the stage for one of the great battles from the ancient era and one of the first known where misinformation was deliberately used to confuse the enemy. The battle ended as a stalemate with a peace treaty between the two empires.	\N	1	\N	\N	1	\N	62	1274	1274
+331	2020-04-23 18:27:23.479038	2020-04-23 18:27:23.479038	Reign of Hittite King Hattusili III	\N	\N	1	\N	\N	1	\N	62	1267	1237
+332	2020-04-23 18:31:03.801049	2020-04-23 18:31:03.801049	Egyptian Reign of Pharaoh Ramses II	Also known as Ramses the Great was the third Pharaoh of the Nineteenth Dynasty. He led a number of military campaigns that reasserted Egyptian control and dominance in the Levant and Canaan. 	\N	1	\N	\N	1	\N	62	1279	1213
+333	2020-04-23 18:46:11.276645	2020-04-23 18:46:11.276645	Reign of Hittite King Muwatalli II	\N	\N	1	\N	\N	1	\N	62	1295	1272
+334	2020-04-23 18:57:51.967524	2020-04-23 18:57:51.967524	Homer Writes The Iliad And The Odyssey	It's not dated very exact, but it is believed that Homer was writing during the 8th century BC.	\N	1	\N	\N	1	\N	62	700	800
+335	2020-04-23 19:35:02.382287	2020-04-23 19:39:04.391432	The Trojan War	This is the estimated date of the Trojan war. There is still a lot of speculation about the date, and more speculation about whether it actually happened or not.	\N	1	\N	\N	1	\N	62	1250	1260
+336	2020-04-23 19:48:54.37707	2020-04-23 19:48:54.37707	Hebrew Exodus From Egypt	If this event did occur clues suggest it likely occurred somewhere around the mid-13th century. According to the Book of Exodus the Hebrews were enslaved by the Egyptians after having lived there peacefully for around 400 year. Afterwards Moses led the Hebrews out of Egyptian bondage on a 40 year journey to the land of Canaan.	\N	1	\N	\N	1	\N	62	1240	1280
+337	2020-04-23 19:52:54.830493	2020-04-23 19:52:54.830493	Jacob The Biblical Patriarch	This is a very rough estimate. But according to the Bible the Hebrews entered Egypt some 400 years before they were enslaved and began the Exodus to Canaan. If that date is correct at some time during the 13th Century, then they would have entered egypt some time during the 17th Century. The bible indicates as well that they entered Egypt during the time of Jacob. Hence how this date was arrived at.	\N	1	\N	\N	1	\N	62	1650	1700
+338	2020-04-24 08:08:24.777817	2020-04-24 08:08:24.777817	Egyptian Reign of Pharaoh Seti I	Father of Ramses II he reigned only a short period of time.	\N	1	\N	\N	1	\N	62	1294	1279
+339	2020-04-24 08:11:32.045158	2020-04-24 08:11:32.045158	King Solomon Builds The Temple Of Jerusalem	\N	\N	1	\N	\N	1	\N	62	970	970
+340	2020-04-24 08:20:01.885124	2020-04-24 08:20:01.885124	Eruption Of The Santorini Volcano In The Aegean	\N	\N	1	\N	\N	1	\N	62	1628	1628
+341	2020-04-24 12:27:41.921568	2020-04-24 12:27:41.921568	Reign of Hittite King Tudhaliya IV	Was one of the last kings of the Hittite Empire.	\N	1	\N	\N	1	\N	62	1237	1209
+342	2020-04-24 12:28:53.467933	2020-04-24 12:28:53.467933	Reign of Hittite King Suppiluliuma II	Was the last king of the Hittite Empire.	\N	1	\N	\N	1	\N	62	1207	1178
+343	2020-04-24 12:32:39.227178	2020-04-24 12:34:25.753418	Reign of Assyrian King Adad-nirari I	During his reign at the beginning of the 13th century, the Assyrians began emerging as a major power in the Near East.	\N	1	\N	\N	1	\N	62	1307	1275
+344	2020-04-24 12:38:43.304873	2020-04-24 12:38:43.304873	Assyrians Invade The Mittanian Empire	Somewhere around the beginning of the 13th century the Assyrians began invading the Mittanian Empire. Sacking their cities the Assyrians King Adad-nirari I placed a client king on their throne extending the Assyrian Empire sufficiently far west that it then bordered the Hittite Empire almost to the Mediterranean Sea.	\N	1	\N	\N	1	\N	62	1290	1290
+345	2020-04-24 12:41:09.816781	2020-04-24 12:41:46.677033	Reign of Assyrian King Shalmaneser I	It is believed that it was during his reign that he finally brought an end to the Mittanian Empire.	\N	1	\N	\N	1	\N	62	1275	1245
+346	2020-04-24 12:43:20.334741	2020-04-24 12:43:20.334741	Reign of Assyrian King Tukulti-Ninurta I	He began his rule just after the fall of the Mittanian Empire and expansion of the Assyrian west toward the Mediterranean Sea.	\N	1	\N	\N	1	\N	62	1244	1208
+347	2020-04-25 17:30:38.388486	2020-04-25 17:30:38.388486	Hittites And Amurru Sign Treaty	As Assyria was rising as a dominant power, the Hittites felt the pressure. As a result they signed a treaty with the Amurru of what is today northern Syria. This created a bit of a buffer between themselves and the Assyrians along with the additional protection that comes in increasing the size of an alliance.	\N	1	\N	\N	1	\N	62	1225	1225
+348	2020-04-25 18:05:54.450196	2020-04-25 18:06:26.779506	Hittites Conquer The Ugarit Kingdom	Under the reign of Suppiluliuma I the Ugarit kingdom was made a vassal state of the Hittite empire.	\N	1	\N	\N	1	\N	62	1350	1340
+349	2020-04-25 18:29:41.488019	2020-04-25 18:29:41.488019	Destruction Of The City Of Ugarit	The destruction of Ugarit appears to have been quite sudden. Originally the quickness of the destruction was believed to have been caused by an earthquake. But more recent archaeological evidence suggests it was destroyed as part of an attack. Scattered arrow heads and the fact that the populous fled the city and never returned both indicate attack as the reason.	\N	1	\N	\N	1	\N	62	1190	1185
+350	2020-04-25 18:35:11.498764	2020-04-25 18:35:11.498764	Egyptian Reign of Pharaoh Sipta	Was the last Pharaoh of the Nineteenth Dynasty.	\N	1	\N	\N	1	\N	62	1195	1189
+351	2020-04-25 18:37:23.298238	2020-04-25 18:37:23.298238	Egyptian Reign of Pharaoh Seti II	\N	\N	1	\N	\N	1	\N	62	1203	1197
+352	2020-04-25 19:05:53.045727	2020-04-25 19:05:53.045727	City Of Emar Is Destroyed	Although the date is a rough date and it's not clear who attacked and destroyed the city in inland Syria, it's clear it was destroyed quickly and violently.	\N	1	\N	\N	1	\N	62	1185	1185
+353	2020-04-25 19:22:06.889929	2020-04-25 19:22:06.889929	Egyptian Reign of Queen Twosret	Was the widow of Seti II. She ruled for just a couple years.	\N	1	\N	\N	1	\N	62	1187	1185
+354	2020-04-25 19:37:57.641044	2020-04-25 19:37:57.641044	Egyptian Reign of Pharaoh Ramses VI	\N	\N	1	\N	\N	1	\N	62	1141	1133
+355	2020-04-25 19:41:50.458167	2020-04-25 19:41:50.458167	Egyptian Reign of Pharaoh Ramses III	\N	\N	1	\N	\N	1	\N	62	1186	1155
+356	2020-04-25 20:35:52.016398	2020-04-25 20:35:52.016398	Reign Of Elamite King Shutruk-Nahhunte	\N	\N	1	\N	\N	1	\N	62	1190	1155
+357	2020-04-25 20:50:52.149652	2020-04-25 20:50:52.149652	The Elamites Attack Babylon	Elam King Shutruk-Nahunte and the Elam army attack Babylon, capture the city, and overthrew the Kassite king. Afterwards he placed his own son on the throne.	\N	1	\N	\N	1	\N	62	1158	1158
 \.
 
 
@@ -1211,7 +1639,7 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 -- Name: event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('event_id_seq', 323, true);
+SELECT pg_catalog.setval('event_id_seq', 357, true);
 
 
 --
@@ -1303,6 +1731,17 @@ COPY event_note (id, created, modified, note, event_fk) FROM stdin;
 129	2020-04-11 20:30:01.552003	2020-04-11 20:30:01.552003	Modern CT scans of King Tut's body indicate that he may have died of infection stemming from a broken leg.	310
 130	2020-04-11 20:30:43.554742	2020-04-11 20:30:43.554742	He also suffered from malaria and congenital deformations, including a club foot.	310
 131	2020-04-11 20:41:08.803565	2020-04-11 20:41:08.803565	During his short reign he notably reversed his father Pharaoh Akhenaten's ban on all Gods and Goddesses. The large amount of treasures found in Tut's tomb could be unique in that they were gifts given by the priesthood in thanks of his reinstating the Egyptian religion.	310
+134	2020-04-15 20:39:53.791026	2020-04-15 20:39:53.791026	His son Mursili II wrote on tablets what is known as the 'Plague Prayers'. Based on the writings. in these tablets it appears that after a war in what is northern Syria today Egyptian prisoners of war brought with them the Plague. The plague ravaged the Hittite population killing may royals including Suppiluliuma I. In the eyes of Mursili this plague was retribution by the Gods for a murder that took place early in Supiluliuma's reign. This was the murder of Tudhaliya the Younger, Supiluliuma's brother. While it's not clear if Supiluliuma had anything to do with the death, he did benefit from it as it was Tudhaliya who stood to inherit the throne.	321
+135	2020-04-23 17:36:19.777301	2020-04-23 17:36:19.777301	In the mid-fourteenth century BC King Suppiluliuma I of the Hittite empire signed a treaty making Ugarit a Hittite vassal.	329
+136	2020-04-23 19:38:58.093755	2020-04-23 19:38:58.093755	The story of the Trojan War in a nutshell is: Paris, the son of King Priam of Troy, sailed from northwestern Anatolia (Turkey) to mainland Greece on a diplomatic mission to Menelaus, the King of Sparta. While there he fell in love with Menelaus's beautiful wife, Helen. When Paris returned home, Helen accompanied him -- either voluntarily, according to the Trojans, or taken by force, according to the Greeks. Enraged, Menelaus persuaded his brother Agamemnon, King of Mycenae and the leader of the Greeks, to send an armada of a thousand ships and fifty thousand men against Troy to get Helen back. In the end, after a ten-year-long war, the Greeks were victorious. Troy was sacked, most of its inhabitants were killed, and Helen returned home to Sparta with Menelaus.	335
+138	2020-04-23 19:50:00.418332	2020-04-23 19:50:00.418332	It is during this 40 year journey that Moses is said to have written the 10 commandments at Mount Sanai. In which the Ark of the Covenant was built in order to carry it on to Canaan.	336
+139	2020-04-24 08:24:38.983268	2020-04-24 08:24:38.983268	This eruption has been used to explain the parting of the Red Sea as described in the Bible during the Exodus of the Hebrews from Egypt. However, given that radio carbon dating has put this eruption at 1650 earliest, and most likely during 1628 BC it would seem impossible that this could be the explanation. The Bible places the Exodus some time in the 15th century, but archaeological evidence shows that if it did occur it would have most likely been during the 13th century. So either way the eruption either occurred two centuries or four centuries prior to the parting of the Red Sea story. 	340
+140	2020-04-24 08:33:01.677656	2020-04-24 08:33:01.677656	What is clear is that by the end of the 13th century BC, the Israelite/Hebrew culture was present in the lands of Canaan. It is their culture, along with the Philistines and the Phoenicians, that rises up out of the ashes of the destruction of the Canaanite civilization sometime during the twelfth century BC. It would be these peoples who would make up a new world order, emerging out of the chaos that was the end of the Late Bronze Age.	336
+141	2020-04-24 12:45:27.596897	2020-04-24 12:45:27.596897	He is known as one of the greatest of Assyria's "Warrior Kings".	346
+142	2020-04-24 19:43:17.978455	2020-04-24 19:43:17.978455	Two events stand out that occurred during the reign of King Tukulti-Ninurta I. First was his attack and defeat of the city of Babylon. Second, was his defeat of the Hittites under the reign of Tudhaliya Iv. This defeat drastically changed the balance of power in the Near East. Assyria by that point was a major power.	346
+143	2020-04-24 19:43:41.958142	2020-04-24 19:43:41.958142	His reign came to an end when he was assassinated by one of his own sons.	346
+144	2020-04-25 17:32:55.849548	2020-04-25 17:32:55.849548	The treaty was signed between Tudhaliya IV, king of the Hittites and Shaushgamuwa, king of the Amurru.	347
+145	2020-04-25 17:38:13.113942	2020-04-25 17:38:13.113942	In the treaty the Hittites specify that the Ahhiyawa (Mycenaea) will not trade with the Assyrians. This is one of the earliest instances of what we would normally think of as a modern concept: the embargo.	347
 \.
 
 
@@ -1310,7 +1749,7 @@ COPY event_note (id, created, modified, note, event_fk) FROM stdin;
 -- Name: event_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('event_note_id_seq', 131, true);
+SELECT pg_catalog.setval('event_note_id_seq', 145, true);
 
 
 --
@@ -1400,6 +1839,7 @@ COPY person (id, created, modified, first_name, middle_name, last_name, birth_da
 67	2020-04-01 20:03:37.941765	2020-04-01 20:07:25.931275	Mohammad	Reza	Pahlavi	26	2	10	1919	27	2	7	1980	56	Pahlavi was the last Shah of Iran. His reign lasted from September 16th 1941 until his overthrow during the Iranian Revolution on February 11th 1979.
 68	2020-04-06 17:47:34.640785	2020-04-06 17:47:34.640785	Thucydides	\N	\N	\N	1	\N	455	\N	1	\N	400	62	A Greek historian. Remembered for his History of the Peloponnesian War. He fought in this conflict on the Athenian side.
 69	2020-04-06 18:27:55.079341	2020-04-06 18:50:14.430079	Hatshepsut	\N	\N	\N	1	\N	1508	\N	1	\N	1480	62	She was the fifth pharaoh of the eighteenth dynasty of Egypt. She came to the throne in 1478 and officially ruled jointly with Thutmose III who had ascended to the throne as a child one year earlier.
+73	2020-04-23 18:32:08.968637	2020-04-23 18:32:08.968637	Ramses II	\N	\N	\N	1	\N	1303	\N	1	\N	1213	62	Also known as Ramses the Great was the third Pharaoh of the Nineteenth Dynasty.
 70	2020-04-08 16:33:05.430197	2020-04-08 17:13:31.589067	Ann	\N	Lee	29	2	2	1736	8	2	9	1784	63	Born poor in Manchester England. Her father was a blacksmith. She would go on to migrate to America where she would formally found the Shaker religion. Celibate and communal, she would be the guide of the church elders until her death.
 71	2020-04-08 20:26:23.616865	2020-04-08 20:29:27.992959	Adolf	\N	Hitler	20	2	4	1889	30	2	4	1945	57	Adolf Hitler was an Austrian-born German politician who was the leader of the Nazi Party (NSDAP), Chancellor of Germany from 1933 to 1945, and Fuhrer ("leader") of Nazi Germany from 1933 to 1945. As effective dictator of Nazi Germany, Hitler was at the centre of World War II in Europe and the Holocaust. 
 \.
@@ -1409,7 +1849,7 @@ COPY person (id, created, modified, first_name, middle_name, last_name, birth_da
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('person_id_seq', 72, true);
+SELECT pg_catalog.setval('person_id_seq', 73, true);
 
 
 --
@@ -1476,15 +1916,14 @@ COPY reference (id, created, modified, title, published_day, published_era_fk, p
 55	2020-02-12 18:51:18.815232	2020-02-12 18:57:24.95727	Red Famine	\N	2	\N	2017	Stalin's War On Ukraine
 54	2020-02-12 18:50:11.495517	2020-02-12 18:57:50.497013	Iron Curtain	\N	2	\N	2012	The Crushing of Eastern Europe 1944 - 1956
 53	2020-02-12 18:40:17.845585	2020-02-12 18:58:01.082845	Salt	\N	2	\N	2002	A World History
-49	2020-02-06 10:38:22.471213	2020-02-12 18:58:46.592601	A Deep History of Ourselves	\N	2	\N	2019	The Four-Billion-Year Story of How We Got Conscious Brains
 56	2020-03-05 14:25:18.400446	2020-03-06 10:24:48.716798	The Black Wave	\N	2	1	2020	Saudi Arabia, Iran, And The Forty-Year Rivalry That Unraveled Culture, Religion, And Collective Memory In The Middle East
 57	2020-03-11 16:44:32.861765	2020-03-11 16:44:32.861765	Wikipedia	\N	2	\N	2018	\N
 58	2020-03-14 17:07:23.248067	2020-03-14 17:07:23.248067	Civilization	\N	2	\N	2011	The West And The Rest
-59	2020-03-16 14:45:58.426726	2020-03-16 14:45:58.426726	The Red Famine	\N	2	\N	2017	Stalin's War on Ukraine
 60	2020-03-18 20:26:52.243298	2020-03-18 20:26:52.243298	Oxford Dictionary	\N	2	\N	2020	of English
 61	2020-03-22 16:16:38.310194	2020-03-22 16:16:38.310194	Common Knowledge	\N	2	\N	2018	\N
-62	2020-04-06 14:00:12.578375	2020-04-06 14:00:12.578375	1777 B.C.	\N	2	\N	2014	The Year Civilization Collapsed
 63	2020-04-08 16:47:57.236228	2020-04-08 16:47:57.236228	Ann The Word	\N	2	\N	2000	\N
+49	2020-02-06 10:38:22.471213	2020-04-19 09:00:45.1285	A Deep History of Ourselves	\N	2	\N	2019	The Four-Billion-Year Story of How We Got Conscious Brains
+62	2020-04-06 14:00:12.578375	2020-04-23 16:18:45.184685	1177 B.C.	\N	2	\N	2014	The Year Civilization Collapsed
 \.
 
 
@@ -1498,11 +1937,11 @@ COPY reference_author (id, created, modified, author_fk, reference_fk) FROM stdi
 63	2020-02-12 18:50:26.912088	2020-02-12 18:50:26.912088	18	54
 64	2020-02-12 18:51:24.247677	2020-02-12 18:51:24.247677	18	55
 66	2020-02-13 21:51:43.541979	2020-02-13 21:51:43.541979	18	52
-67	2020-02-13 22:03:48.713825	2020-02-13 22:03:48.713825	16	49
 68	2020-03-06 10:24:56.265383	2020-03-06 10:24:56.265383	23	56
 69	2020-03-14 17:07:47.7862	2020-03-14 17:07:47.7862	24	58
 70	2020-04-06 14:00:20.11342	2020-04-06 14:00:20.11342	25	62
 71	2020-04-08 16:48:21.331692	2020-04-08 16:48:21.331692	26	63
+72	2020-04-19 09:00:32.068079	2020-04-19 09:00:32.068079	16	49
 \.
 
 
@@ -1510,7 +1949,7 @@ COPY reference_author (id, created, modified, author_fk, reference_fk) FROM stdi
 -- Name: reference_author_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('reference_author_id_seq', 71, true);
+SELECT pg_catalog.setval('reference_author_id_seq', 72, true);
 
 
 --
@@ -1518,6 +1957,26 @@ SELECT pg_catalog.setval('reference_author_id_seq', 71, true);
 --
 
 SELECT pg_catalog.setval('reference_id_seq', 63, true);
+
+
+--
+-- Data for Name: reference_note; Type: TABLE DATA; Schema: public; Owner: adrianadelacuadra
+--
+
+COPY reference_note (id, created, modified, note, chapter, page, reference_fk) FROM stdin;
+7	2020-04-23 17:18:57.400946	2020-04-23 17:18:57.400946	As early as the 13th century BC Kings were exempting the wealthy from paying taxes. A wealthy Ugaritic merchant whose name was Sinaranu was exempted from taxes by the King of Ugarit Ammistamru II. The recovered text reads "From the present day Ammistamru, son of Niqmepa, King of Ugarit, exempts Sinaranu, son of Siginu ... His grain, his  beer, his olive oil to the palace he shall not deliver. His ship is exempt when it arrives from Crete.	Chapter 3	79	62
+8	2020-04-23 17:31:18.551574	2020-04-23 17:31:18.551574	As far back (or possibly further) than the 15th century BC evidence shows the beginnings of international diplomacy and trade. For example a grand palace was built in 1477 in Egypt. The interesting thing about the  palace is the Minoan frescoes painted on it as part of the original construction. Minoans would have either had to travel to Egypt to create the frescoes or the Egyptian artists would have had to somehow known about both frescoes and the Minoan art style. Either way it's a clear indication of knowledge traveling very long distances.	Chapter 1	14	62
+9	2020-04-23 19:21:36.539142	2020-04-23 19:21:36.539142	Interesting note about the word 'sesame'. 12th century Mycenaean tablets record imports of sesame seeds. Not having a word for them in the linear B language at the time they picked it up from the culture languages from which they were being imported. In Linear B the word is sa-sa-ma, which appears to be coming from the Ugaritic word ssmn, the Akkadian word sammassammu, and the Hurrian word sumisumi.	Chapter 3	88	62
+10	2020-04-25 19:18:34.198801	2020-04-25 19:18:34.198801	Excavations of certain sites along the Mediterranean suggest that it's possible that the "Sea Peoples" had sailed into this area during the time of 1205 to 1185 BC. Some 7 to 28 years prior to the 2nd wave invasion recorded by Ramses III in 1177 BC. In this case though they seem to have settled in the cities in which they sailed to and integrated with the local populations. This would mean that the destruction of these areas by the Sea Peoples in 1177 BC would have also impacted their own people who had migrated there in the years prior.	Chapter 4	114	62
+11	2020-04-25 19:32:05.134383	2020-04-25 19:32:05.134383	A 'Tell' is a location that has been rebuilt so many times it appears to sit on top of a hill. This is not a geographical hill however, but a rising as a consequence of having a place built on top of a previously destroyed place repeatedly. And example is the city of Megiddo in modern-day Israel. This is also the location of the Biblical Armageddon. Around 20 cities here have been found layered one on top of the other. The Book Of Revelations indicates that Armageddon would be on top of a mountain or hill. This referring to the place of Megiddo, and seeing it as a geographical feature, but in reality it's a man-made hill.	Chapter 4	114	62
+\.
+
+
+--
+-- Name: reference_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
+--
+
+SELECT pg_catalog.setval('reference_note_id_seq', 11, true);
 
 
 --
@@ -1594,6 +2053,7 @@ COPY timeline_category (id, created, modified, timeline_fk, label) FROM stdin;
 50	2020-04-11 20:02:46.402015	2020-04-11 20:02:46.402015	12	Mitanni
 51	2020-04-11 20:06:59.749507	2020-04-11 20:06:59.749507	12	Babylonians
 52	2020-04-11 20:07:40.900863	2020-04-11 20:07:40.900863	12	Empires
+53	2020-04-24 08:35:16.523184	2020-04-24 08:35:16.523184	12	Biblical
 \.
 
 
@@ -1761,6 +2221,26 @@ COPY timeline_category_event (id, created, modified, timeline_category_fk, event
 263	2020-04-11 20:16:05.157356	2020-04-11 20:16:05.157356	52	316
 264	2020-04-11 20:28:54.028741	2020-04-11 20:28:54.028741	44	321
 265	2020-04-11 20:46:51.107858	2020-04-11 20:46:51.107858	44	323
+266	2020-04-23 18:33:27.163884	2020-04-23 18:33:27.163884	44	331
+267	2020-04-23 18:34:16.633172	2020-04-23 18:34:16.633172	41	332
+268	2020-04-23 18:46:35.891809	2020-04-23 18:46:35.891809	44	333
+269	2020-04-24 08:08:54.978089	2020-04-24 08:08:54.978089	41	338
+270	2020-04-24 08:35:26.263663	2020-04-24 08:35:26.263663	53	337
+271	2020-04-24 08:35:47.320785	2020-04-24 08:35:47.320785	53	339
+272	2020-04-24 08:35:57.291766	2020-04-24 08:35:57.291766	53	336
+273	2020-04-24 12:29:16.544707	2020-04-24 12:29:16.544707	44	341
+274	2020-04-24 12:29:22.723155	2020-04-24 12:29:22.723155	44	342
+275	2020-04-24 12:32:58.592322	2020-04-24 12:32:58.592322	49	343
+276	2020-04-24 12:39:16.308075	2020-04-24 12:39:16.308075	49	344
+277	2020-04-24 12:44:11.068347	2020-04-24 12:44:11.068347	49	345
+278	2020-04-24 12:44:17.299067	2020-04-24 12:44:17.299067	49	346
+279	2020-04-25 17:32:00.640083	2020-04-25 17:32:00.640083	44	347
+280	2020-04-25 18:06:13.040564	2020-04-25 18:06:13.040564	44	348
+281	2020-04-25 18:35:33.544946	2020-04-25 18:35:33.544946	41	350
+282	2020-04-25 18:37:44.594553	2020-04-25 18:37:44.594553	41	351
+283	2020-04-25 19:22:26.44987	2020-04-25 19:22:26.44987	41	353
+284	2020-04-25 19:38:30.189267	2020-04-25 19:38:30.189267	41	354
+285	2020-04-25 19:42:15.366842	2020-04-25 19:42:15.366842	41	355
 \.
 
 
@@ -1768,14 +2248,14 @@ COPY timeline_category_event (id, created, modified, timeline_category_fk, event
 -- Name: timeline_category_event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('timeline_category_event_id_seq', 265, true);
+SELECT pg_catalog.setval('timeline_category_event_id_seq', 285, true);
 
 
 --
 -- Name: timeline_category_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('timeline_category_id_seq', 52, true);
+SELECT pg_catalog.setval('timeline_category_id_seq', 53, true);
 
 
 --
@@ -2146,7 +2626,36 @@ COPY timeline_event (id, created, modified, timeline_fk, event_fk, is_shadow, pr
 375	2020-04-11 20:15:12.103578	2020-04-11 20:15:12.103578	12	320	f	0
 376	2020-04-11 20:25:26.188556	2020-04-11 20:25:26.188556	12	321	f	0
 377	2020-04-11 20:28:32.103905	2020-04-11 20:28:32.103905	12	322	f	0
-378	2020-04-11 20:45:43.574686	2020-04-11 20:45:43.574686	12	323	f	0
+379	2020-04-12 13:50:02.152252	2020-04-12 13:50:02.152252	12	323	f	0
+383	2020-04-23 16:38:28.822217	2020-04-23 16:38:28.822217	12	329	f	0
+384	2020-04-23 17:41:13.431695	2020-04-23 17:41:13.431695	12	330	f	0
+385	2020-04-23 18:27:28.75238	2020-04-23 18:27:28.75238	12	331	f	0
+386	2020-04-23 18:31:10.637148	2020-04-23 18:31:10.637148	12	332	f	0
+387	2020-04-23 18:46:16.80767	2020-04-23 18:46:16.80767	12	333	f	0
+388	2020-04-23 18:57:57.298581	2020-04-23 18:57:57.298581	12	334	f	0
+389	2020-04-23 19:39:17.284072	2020-04-23 19:39:17.284072	12	335	f	0
+390	2020-04-23 19:50:05.204678	2020-04-23 19:50:05.204678	12	336	f	0
+391	2020-04-23 19:53:01.054109	2020-04-23 19:53:01.054109	12	337	f	0
+392	2020-04-24 08:08:31.153766	2020-04-24 08:08:31.153766	12	338	f	0
+393	2020-04-24 08:11:38.709414	2020-04-24 08:11:38.709414	12	339	f	0
+394	2020-04-24 08:20:08.53031	2020-04-24 08:20:08.53031	12	340	f	0
+395	2020-04-24 12:27:48.154756	2020-04-24 12:27:48.154756	12	341	f	0
+396	2020-04-24 12:28:58.582947	2020-04-24 12:28:58.582947	12	342	f	0
+397	2020-04-24 12:32:46.479817	2020-04-24 12:32:46.479817	12	343	f	0
+398	2020-04-24 12:38:50.351307	2020-04-24 12:38:50.351307	12	344	f	0
+399	2020-04-24 12:41:14.518842	2020-04-24 12:41:14.518842	12	345	f	0
+400	2020-04-24 12:43:25.125277	2020-04-24 12:43:25.125277	12	346	f	0
+401	2020-04-25 17:30:43.591272	2020-04-25 17:30:43.591272	12	347	f	0
+402	2020-04-25 18:06:01.310623	2020-04-25 18:06:01.310623	12	348	f	0
+403	2020-04-25 18:29:52.019454	2020-04-25 18:29:52.019454	12	349	f	0
+404	2020-04-25 18:35:17.993558	2020-04-25 18:35:17.993558	12	350	f	0
+405	2020-04-25 18:37:29.37391	2020-04-25 18:37:29.37391	12	351	f	0
+406	2020-04-25 19:05:59.153704	2020-04-25 19:05:59.153704	12	352	f	0
+407	2020-04-25 19:22:12.412603	2020-04-25 19:22:12.412603	12	353	f	0
+408	2020-04-25 19:38:14.825561	2020-04-25 19:38:14.825561	12	354	f	0
+409	2020-04-25 19:41:55.993582	2020-04-25 19:41:55.993582	12	355	f	0
+411	2020-04-25 20:35:58.30004	2020-04-25 20:35:58.30004	12	356	f	0
+412	2020-04-25 20:50:57.251969	2020-04-25 20:50:57.251969	12	357	f	0
 \.
 
 
@@ -2154,7 +2663,7 @@ COPY timeline_event (id, created, modified, timeline_fk, event_fk, is_shadow, pr
 -- Name: timeline_event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('timeline_event_id_seq', 378, true);
+SELECT pg_catalog.setval('timeline_event_id_seq', 412, true);
 
 
 --
@@ -2204,6 +2713,7 @@ COPY timeline_person (id, created, modified, timeline_fk, person_fk) FROM stdin;
 39	2020-04-08 16:33:37.582558	2020-04-08 16:33:37.582558	13	70
 40	2020-04-08 20:37:17.084085	2020-04-08 20:37:17.084085	10	71
 41	2020-04-11 20:21:49.728717	2020-04-11 20:21:49.728717	12	72
+42	2020-04-23 18:32:18.733083	2020-04-23 18:32:18.733083	12	73
 \.
 
 
@@ -2211,7 +2721,7 @@ COPY timeline_person (id, created, modified, timeline_fk, person_fk) FROM stdin;
 -- Name: timeline_person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('timeline_person_id_seq', 41, true);
+SELECT pg_catalog.setval('timeline_person_id_seq', 42, true);
 
 
 --
@@ -2236,6 +2746,54 @@ ALTER TABLE ONLY author
 
 ALTER TABLE ONLY era
     ADD CONSTRAINT era_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: essay_event essay_event_pkey; Type: CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_event
+    ADD CONSTRAINT essay_event_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: essay_note essay_note_pkey; Type: CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_note
+    ADD CONSTRAINT essay_note_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: essay_person essay_person_pkey; Type: CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_person
+    ADD CONSTRAINT essay_person_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: essay essay_pkey; Type: CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay
+    ADD CONSTRAINT essay_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: essay_reference essay_reference_pkey; Type: CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_reference
+    ADD CONSTRAINT essay_reference_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: essay_timeline essay_timeline_pkey; Type: CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_timeline
+    ADD CONSTRAINT essay_timeline_pkey PRIMARY KEY (id);
 
 
 --
@@ -2300,6 +2858,14 @@ ALTER TABLE ONLY person_tag
 
 ALTER TABLE ONLY reference_author
     ADD CONSTRAINT reference_author_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: reference_note reference_note_pkey; Type: CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY reference_note
+    ADD CONSTRAINT reference_note_pkey PRIMARY KEY (id);
 
 
 --
@@ -2372,6 +2938,86 @@ ALTER TABLE ONLY timeline_person
 
 ALTER TABLE ONLY timeline
     ADD CONSTRAINT timeline_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: essay_event essay_event_essay_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_event
+    ADD CONSTRAINT essay_event_essay_fk_fkey FOREIGN KEY (essay_fk) REFERENCES essay(id);
+
+
+--
+-- Name: essay_event essay_event_event_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_event
+    ADD CONSTRAINT essay_event_event_fk_fkey FOREIGN KEY (event_fk) REFERENCES event(id);
+
+
+--
+-- Name: essay_note essay_note_essay_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_note
+    ADD CONSTRAINT essay_note_essay_fk_fkey FOREIGN KEY (essay_fk) REFERENCES essay(id);
+
+
+--
+-- Name: essay_note essay_note_reference_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_note
+    ADD CONSTRAINT essay_note_reference_fk_fkey FOREIGN KEY (reference_fk) REFERENCES reference(id);
+
+
+--
+-- Name: essay_person essay_person_essay_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_person
+    ADD CONSTRAINT essay_person_essay_fk_fkey FOREIGN KEY (essay_fk) REFERENCES essay(id);
+
+
+--
+-- Name: essay_person essay_person_person_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_person
+    ADD CONSTRAINT essay_person_person_fk_fkey FOREIGN KEY (person_fk) REFERENCES event(id);
+
+
+--
+-- Name: essay_reference essay_reference_essay_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_reference
+    ADD CONSTRAINT essay_reference_essay_fk_fkey FOREIGN KEY (essay_fk) REFERENCES essay(id);
+
+
+--
+-- Name: essay_reference essay_reference_reference_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_reference
+    ADD CONSTRAINT essay_reference_reference_fk_fkey FOREIGN KEY (reference_fk) REFERENCES reference(id);
+
+
+--
+-- Name: essay_timeline essay_timeline_essay_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_timeline
+    ADD CONSTRAINT essay_timeline_essay_fk_fkey FOREIGN KEY (essay_fk) REFERENCES essay(id);
+
+
+--
+-- Name: essay_timeline essay_timeline_timeline_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY essay_timeline
+    ADD CONSTRAINT essay_timeline_timeline_fk_fkey FOREIGN KEY (timeline_fk) REFERENCES timeline(id);
 
 
 --
@@ -2516,6 +3162,14 @@ ALTER TABLE ONLY reference_author
 
 ALTER TABLE ONLY reference_author
     ADD CONSTRAINT reference_author_reference_fk_fkey FOREIGN KEY (reference_fk) REFERENCES reference(id);
+
+
+--
+-- Name: reference_note reference_note_reference_fk_fkey; Type: FK CONSTRAINT; Schema: public; Owner: adrianadelacuadra
+--
+
+ALTER TABLE ONLY reference_note
+    ADD CONSTRAINT reference_note_reference_fk_fkey FOREIGN KEY (reference_fk) REFERENCES reference(id);
 
 
 --
