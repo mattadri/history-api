@@ -1175,6 +1175,12 @@ COPY author (id, created, modified, first_name, middle_name, last_name) FROM std
 24	2020-03-14 17:07:36.859053	2020-03-14 17:07:36.859053	Niall	\N	Ferguson
 25	2020-04-06 13:59:31.516535	2020-04-06 13:59:31.516535	Eric	H.	Cline
 26	2020-04-08 16:48:11.871409	2020-04-08 16:48:11.871409	Richard	\N	Francis
+27	2020-04-28 20:53:27.914737	2020-04-28 20:53:27.914737	Jared	\N	Diamond
+28	2020-04-28 20:53:41.185787	2020-04-28 20:53:41.185787	Sam	\N	Dagher
+29	2020-04-28 20:53:56.702084	2020-04-28 20:53:56.702084	John	\N	Toland
+30	2020-04-28 20:54:23.190477	2020-04-28 20:54:23.190477	Jeremy	D.	Popkin
+31	2020-04-28 21:09:04.695013	2020-04-28 21:09:04.695013	Graeme	\N	Wood
+32	2020-04-28 21:15:14.870743	2020-04-28 21:15:14.870743	Francis 	\N	Fitzgerald
 \.
 
 
@@ -1182,7 +1188,7 @@ COPY author (id, created, modified, first_name, middle_name, last_name) FROM std
 -- Name: author_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('author_id_seq', 26, true);
+SELECT pg_catalog.setval('author_id_seq', 32, true);
 
 
 --
@@ -1207,6 +1213,7 @@ SELECT pg_catalog.setval('era_id_seq', 2, true);
 --
 
 COPY essay (id, created, modified, title, abstract, essay) FROM stdin;
+4	2020-04-27 11:37:44.493739	2020-04-27 11:46:40.898299	Test Essay	<p>Test abstract.</p>	<p>((r 5 Test)) ((t 4 content)).</p>
 \.
 
 
@@ -1229,7 +1236,7 @@ SELECT pg_catalog.setval('essay_event_id_seq', 4, true);
 -- Name: essay_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('essay_id_seq', 3, true);
+SELECT pg_catalog.setval('essay_id_seq', 4, true);
 
 
 --
@@ -1267,6 +1274,7 @@ SELECT pg_catalog.setval('essay_person_id_seq', 3, true);
 --
 
 COPY essay_reference (id, created, modified, chapter, page, essay_fk, reference_fk) FROM stdin;
+5	2020-04-27 11:46:33.20786	2020-04-27 11:46:33.20786	sdfdf	3	4	55
 \.
 
 
@@ -1274,7 +1282,7 @@ COPY essay_reference (id, created, modified, chapter, page, essay_fk, reference_
 -- Name: essay_reference_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('essay_reference_id_seq', 4, true);
+SELECT pg_catalog.setval('essay_reference_id_seq', 5, true);
 
 
 --
@@ -1282,6 +1290,8 @@ SELECT pg_catalog.setval('essay_reference_id_seq', 4, true);
 --
 
 COPY essay_timeline (id, created, modified, essay_fk, timeline_fk) FROM stdin;
+4	2020-04-27 11:38:21.801718	2020-04-27 11:38:21.801718	4	6
+5	2020-04-27 11:45:00.402235	2020-04-27 11:45:00.402235	4	5
 \.
 
 
@@ -1289,7 +1299,7 @@ COPY essay_timeline (id, created, modified, essay_fk, timeline_fk) FROM stdin;
 -- Name: essay_timeline_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('essay_timeline_id_seq', 3, true);
+SELECT pg_catalog.setval('essay_timeline_id_seq', 5, true);
 
 
 --
@@ -1629,9 +1639,10 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 352	2020-04-25 19:05:53.045727	2020-04-25 19:05:53.045727	City Of Emar Is Destroyed	Although the date is a rough date and it's not clear who attacked and destroyed the city in inland Syria, it's clear it was destroyed quickly and violently.	\N	1	\N	\N	1	\N	62	1185	1185
 353	2020-04-25 19:22:06.889929	2020-04-25 19:22:06.889929	Egyptian Reign of Queen Twosret	Was the widow of Seti II. She ruled for just a couple years.	\N	1	\N	\N	1	\N	62	1187	1185
 354	2020-04-25 19:37:57.641044	2020-04-25 19:37:57.641044	Egyptian Reign of Pharaoh Ramses VI	\N	\N	1	\N	\N	1	\N	62	1141	1133
-355	2020-04-25 19:41:50.458167	2020-04-25 19:41:50.458167	Egyptian Reign of Pharaoh Ramses III	\N	\N	1	\N	\N	1	\N	62	1186	1155
 356	2020-04-25 20:35:52.016398	2020-04-25 20:35:52.016398	Reign Of Elamite King Shutruk-Nahhunte	\N	\N	1	\N	\N	1	\N	62	1190	1155
 357	2020-04-25 20:50:52.149652	2020-04-25 20:50:52.149652	The Elamites Attack Babylon	Elam King Shutruk-Nahunte and the Elam army attack Babylon, capture the city, and overthrew the Kassite king. Afterwards he placed his own son on the throne.	\N	1	\N	\N	1	\N	62	1158	1158
+358	2020-04-28 07:19:52.73465	2020-04-28 07:19:52.73465	The Palace At Pylos Is Destroyed	It's not clear how the fire started, or by whom. Only that it was cataclysmic in it's destruction.	\N	1	\N	\N	1	\N	62	1180	1180
+355	2020-04-25 19:41:50.458167	2020-04-28 08:30:23.306666	Egyptian Reign of Pharaoh Ramses III	During his long reign he conducted many military campaigns. In 1155 he was assassinated. Egyptian documents of the following trials indicate it as a plot hatched by a minor queen of the court to have her son succeed Ramses III as Pharaoh.  This has come to be known as the 'Harem Conspiracy'. Archaeologists working with the mummy of Ramses III have found he was stabbed in the throat causing most likely instantaneous death.	\N	1	\N	\N	1	\N	62	1184	1155
 \.
 
 
@@ -1639,7 +1650,7 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 -- Name: event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('event_id_seq', 357, true);
+SELECT pg_catalog.setval('event_id_seq', 358, true);
 
 
 --
@@ -1742,6 +1753,7 @@ COPY event_note (id, created, modified, note, event_fk) FROM stdin;
 143	2020-04-24 19:43:41.958142	2020-04-24 19:43:41.958142	His reign came to an end when he was assassinated by one of his own sons.	346
 144	2020-04-25 17:32:55.849548	2020-04-25 17:32:55.849548	The treaty was signed between Tudhaliya IV, king of the Hittites and Shaushgamuwa, king of the Amurru.	347
 145	2020-04-25 17:38:13.113942	2020-04-25 17:38:13.113942	In the treaty the Hittites specify that the Ahhiyawa (Mycenaea) will not trade with the Assyrians. This is one of the earliest instances of what we would normally think of as a modern concept: the embargo.	347
+146	2020-04-28 08:32:23.846414	2020-04-28 08:32:23.846414	After the death of Ramses III the Egyptian empire went into a state of decline, or at least stagnation.	355
 \.
 
 
@@ -1749,7 +1761,7 @@ COPY event_note (id, created, modified, note, event_fk) FROM stdin;
 -- Name: event_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('event_note_id_seq', 145, true);
+SELECT pg_catalog.setval('event_note_id_seq', 146, true);
 
 
 --
@@ -1805,10 +1817,10 @@ COPY person (id, created, modified, first_name, middle_name, last_name, birth_da
 47	2020-03-14 17:39:02.715023	2020-03-14 17:39:02.715023	Pieter 	\N	Bruegel the Elder	\N	2	\N	1525	\N	2	\N	1569	58	\N
 48	2020-03-16 15:15:10.88332	2020-03-16 15:15:10.88332	Nestor	\N	Makhno	26	2	10	1888	6	2	7	1934	57	\N
 49	2020-03-16 15:18:48.165927	2020-03-16 15:18:48.165927	Leon	\N	Trosky	\N	2	\N	1879	\N	2	\N	1940	48	\N
-30	2020-02-06 09:52:06.580819	2020-02-06 09:52:06.580819	Alexander III			\N	1	\N	355	\N	1	\N	323	48	\N
 51	2020-03-16 16:38:30.756396	2020-03-16 16:38:30.756396	Symon	\N	Petliura	22	2	5	1879	25	2	5	1926	57	\N
 52	2020-03-16 17:29:34.915219	2020-03-16 17:36:24.799845	Vladimir	\N	Lenin	22	2	4	1870	21	2	1	1924	57	Russian communist revolutionary, politician and political theorist who served as head of government of the Russian Republic from 1917 to 1918, of the Russian Soviet Federative Socialist Republic from 1918 to 1924 and of the Soviet Union from 1922 to 1924. Born to a wealthy middle-class family in Simbirsk, Lenin embraced revolutionary socialist politics following his brother's execution in 1887. Expelled from Kazan Imperial University for participating in protests against the Russian Empire's Tsarist goverment, he devoted the following years to a law degree. He moved to St. Petersburg in 1893 and became a senior figure in the Marxist Russian Social Democratic Labour Party. In 1897, he was arrested for sedition and exiled to Shushenskoye for three years, where he married Nadezhda Krupskaya.
 50	2020-03-16 15:21:00.783865	2020-03-24 19:55:37.04327	Joseph	\N	Stalin	18	2	12	1878	4	2	3	1953	57	Stalin was the leader of the Soviet Union from the mid-1920s until his death. Holding the post of the General Secretary of the Central Committee of Communist Party of the Soviet Union, he was effectively the dictator of the state.
+30	2020-02-06 09:52:06.580819	2020-04-28 09:25:55.370953	Alexander III			\N	1	\N	355	\N	1	\N	323	48	Known more commonly as "Alexander the Great".
 53	2020-03-22 17:22:37.395875	2020-03-22 17:22:37.395875	Yvonne	\N	Cook	9	2	9	1961	\N	\N	\N	\N	61	\N
 54	2020-03-22 17:24:09.813331	2020-03-22 17:24:09.813331	Betty 	\N	Summers	10	2	6	1933	\N	\N	\N	\N	61	\N
 55	2020-03-22 17:24:33.703457	2020-03-22 17:24:33.703457	Adriana	\N	De La Cuadra	23	2	4	1981	\N	\N	\N	\N	61	\N
@@ -1842,6 +1854,10 @@ COPY person (id, created, modified, first_name, middle_name, last_name, birth_da
 73	2020-04-23 18:32:08.968637	2020-04-23 18:32:08.968637	Ramses II	\N	\N	\N	1	\N	1303	\N	1	\N	1213	62	Also known as Ramses the Great was the third Pharaoh of the Nineteenth Dynasty.
 70	2020-04-08 16:33:05.430197	2020-04-08 17:13:31.589067	Ann	\N	Lee	29	2	2	1736	8	2	9	1784	63	Born poor in Manchester England. Her father was a blacksmith. She would go on to migrate to America where she would formally found the Shaker religion. Celibate and communal, she would be the guide of the church elders until her death.
 71	2020-04-08 20:26:23.616865	2020-04-08 20:29:27.992959	Adolf	\N	Hitler	20	2	4	1889	30	2	4	1945	57	Adolf Hitler was an Austrian-born German politician who was the leader of the Nazi Party (NSDAP), Chancellor of Germany from 1933 to 1945, and Fuhrer ("leader") of Nazi Germany from 1933 to 1945. As effective dictator of Nazi Germany, Hitler was at the centre of World War II in Europe and the Holocaust. 
+74	2020-04-28 09:19:13.098122	2020-04-28 09:19:13.098122	Herodotus	\N	\N	\N	1	\N	484	\N	1	\N	425	62	Known as the 'Father of History' he was born in Halicarnassus, Caria (modern-day Bodrum, Turkey). When it came to history he was the first to treat history as an investigation vs. the more traditional history of Homeric quality as narrative.
+75	2020-04-28 09:22:46.520013	2020-04-28 09:22:46.520013	Plato	\N	\N	\N	1	\N	424	\N	1	\N	348	62	Greek philosopher.
+76	2020-04-28 09:23:42.510187	2020-04-28 09:23:42.510187	Aristotle	\N	\N	\N	1	\N	385	\N	1	\N	323	62	Greek philosopher.
+77	2020-04-28 09:24:18.451087	2020-04-28 09:24:18.451087	Socrates	\N	\N	\N	1	\N	470	\N	1	\N	399	62	Greek philosopher
 \.
 
 
@@ -1849,7 +1865,7 @@ COPY person (id, created, modified, first_name, middle_name, last_name, birth_da
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('person_id_seq', 73, true);
+SELECT pg_catalog.setval('person_id_seq', 77, true);
 
 
 --
@@ -1924,6 +1940,16 @@ COPY reference (id, created, modified, title, published_day, published_era_fk, p
 63	2020-04-08 16:47:57.236228	2020-04-08 16:47:57.236228	Ann The Word	\N	2	\N	2000	\N
 49	2020-02-06 10:38:22.471213	2020-04-19 09:00:45.1285	A Deep History of Ourselves	\N	2	\N	2019	The Four-Billion-Year Story of How We Got Conscious Brains
 62	2020-04-06 14:00:12.578375	2020-04-23 16:18:45.184685	1177 B.C.	\N	2	\N	2014	The Year Civilization Collapsed
+64	2020-04-28 20:55:48.984806	2020-04-28 20:55:48.984806	A New World Begins	\N	2	\N	2019	The History Of The French Revolution
+65	2020-04-28 20:57:19.883574	2020-04-28 20:57:19.883574	Assad or We Burn the Country	\N	2	\N	2019	How One Family's Lust for Power Destroyed Syria
+66	2020-04-28 20:59:07.343566	2020-04-28 20:59:07.343566	The Rising Sun	\N	2	\N	1970	The Decline and Fall of the Japanese Empire, 1936 - 1945
+67	2020-04-28 21:04:24.94901	2020-04-28 21:04:24.94901	Guns, Germs, and Steel	\N	2	\N	1997	The Fates of Human Societies
+68	2020-04-28 21:05:47.947715	2020-04-28 21:05:47.947715	Collapse	\N	2	\N	2005	How Societies Choose to Fail or Succeed
+69	2020-04-28 21:10:25.382422	2020-04-28 21:10:25.382422	The Way of the Strangers	\N	2	\N	2016	Encounters with the Islamic State
+70	2020-04-28 21:11:59.679927	2020-04-28 21:11:59.679927	The Stillborn God	\N	2	\N	2007	Religion, Politics, and the Modern West
+71	2020-04-28 21:13:58.495479	2020-04-28 21:13:58.495479	The Once and Future Liberal	\N	2	\N	2017	After Identity Politics
+72	2020-04-28 21:15:53.377431	2020-04-28 21:15:53.377431	The Evangelicals	\N	2	\N	2017	The Struggle To Shape America
+73	2020-04-28 21:17:21.876836	2020-04-28 21:17:21.876836	The Reckless Mind	\N	2	\N	2001	Intellectuals in Politics
 \.
 
 
@@ -1942,6 +1968,15 @@ COPY reference_author (id, created, modified, author_fk, reference_fk) FROM stdi
 70	2020-04-06 14:00:20.11342	2020-04-06 14:00:20.11342	25	62
 71	2020-04-08 16:48:21.331692	2020-04-08 16:48:21.331692	26	63
 72	2020-04-19 09:00:32.068079	2020-04-19 09:00:32.068079	16	49
+73	2020-04-28 20:59:21.787457	2020-04-28 20:59:21.787457	29	66
+74	2020-04-28 20:59:37.317685	2020-04-28 20:59:37.317685	28	65
+75	2020-04-28 20:59:59.37845	2020-04-28 20:59:59.37845	30	64
+76	2020-04-28 21:06:01.825532	2020-04-28 21:06:01.825532	27	67
+77	2020-04-28 21:06:06.74724	2020-04-28 21:06:06.74724	27	68
+78	2020-04-28 21:10:33.659795	2020-04-28 21:10:33.659795	31	69
+79	2020-04-28 21:12:05.930481	2020-04-28 21:12:05.930481	21	70
+80	2020-04-28 21:15:59.660462	2020-04-28 21:15:59.660462	32	72
+81	2020-04-28 21:17:27.795911	2020-04-28 21:17:27.795911	21	73
 \.
 
 
@@ -1949,14 +1984,14 @@ COPY reference_author (id, created, modified, author_fk, reference_fk) FROM stdi
 -- Name: reference_author_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('reference_author_id_seq', 72, true);
+SELECT pg_catalog.setval('reference_author_id_seq', 81, true);
 
 
 --
 -- Name: reference_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('reference_id_seq', 63, true);
+SELECT pg_catalog.setval('reference_id_seq', 73, true);
 
 
 --
@@ -1969,6 +2004,14 @@ COPY reference_note (id, created, modified, note, chapter, page, reference_fk) F
 9	2020-04-23 19:21:36.539142	2020-04-23 19:21:36.539142	Interesting note about the word 'sesame'. 12th century Mycenaean tablets record imports of sesame seeds. Not having a word for them in the linear B language at the time they picked it up from the culture languages from which they were being imported. In Linear B the word is sa-sa-ma, which appears to be coming from the Ugaritic word ssmn, the Akkadian word sammassammu, and the Hurrian word sumisumi.	Chapter 3	88	62
 10	2020-04-25 19:18:34.198801	2020-04-25 19:18:34.198801	Excavations of certain sites along the Mediterranean suggest that it's possible that the "Sea Peoples" had sailed into this area during the time of 1205 to 1185 BC. Some 7 to 28 years prior to the 2nd wave invasion recorded by Ramses III in 1177 BC. In this case though they seem to have settled in the cities in which they sailed to and integrated with the local populations. This would mean that the destruction of these areas by the Sea Peoples in 1177 BC would have also impacted their own people who had migrated there in the years prior.	Chapter 4	114	62
 11	2020-04-25 19:32:05.134383	2020-04-25 19:32:05.134383	A 'Tell' is a location that has been rebuilt so many times it appears to sit on top of a hill. This is not a geographical hill however, but a rising as a consequence of having a place built on top of a previously destroyed place repeatedly. And example is the city of Megiddo in modern-day Israel. This is also the location of the Biblical Armageddon. Around 20 cities here have been found layered one on top of the other. The Book Of Revelations indicates that Armageddon would be on top of a mountain or hill. This referring to the place of Megiddo, and seeing it as a geographical feature, but in reality it's a man-made hill.	Chapter 4	114	62
+12	2020-04-28 08:47:28.47608	2020-04-28 08:47:28.47608	POSSIBLE CAUSE OF COLLAPSE 1(EARTHQUAKES): Archaeoseismologiests have shown that there was apparently a series of earthquakes in the Aegean/Mediterranean area beginning about 1225 BC and lasting until about 1175 BC. While there is much evidence of earthquake damage and destruction at sites during this time period there is also evidence of rebuilding and reoccupation. It would also seem that earthquakes alone would not be enough to destroy a civilization. Likely a setback, but not a silver bullet of collapse.	Chapter 5	140	62
+13	2020-04-28 09:06:35.057221	2020-04-28 09:06:35.057221	POSSIBLE CAUSE OF COLLAPSE 1(CLIMATE CHANGE): There is abundant evidence supporting climate change, particularly drought, in the eastern Mediterranean between around 1250 BC and 1100 BC. Historical documentation between civilizations indicate famine in the Hittite empire, Ugarit, Cyprus, and Syria. Drought may have also been present elsewhere in the Levant and into Egypt at times. Other evidence such as pollen analysis supports the theory as well. That said, drought was recorded at many times previous to this time period and certainly in times afterwards. And yet climate change does not always lead to the collapse of the civilization.  So while climate change most certainly appears to have played a role, it cannot be blamed solely.	Chapter 5	147	62
+14	2020-04-28 09:13:58.713435	2020-04-28 09:13:58.713435	POSSIBLE CAUSE OF COLLAPSE 1(INTERNAL REBELLION): While it's likely that internal rebellion would have occurred to some extent given that it's possible earthquakes, famines, droughts, and changes in international trade between civilizations were likely taking place, this alone is not nearly sufficient to explain the collapse of multiple large and powerful empires. Internal rebellions rarely lead to the collapse of a civilization, but usually to a major change in that civilization.	Chapter 5	147	62
+15	2020-04-28 09:38:36.483041	2020-04-28 09:38:36.483041	POSSIBLE CAUSE OF COLLAPSE 1(COLLAPSE OF TRADE): There is some amount of evidence, particularly from the city of Ugarit, that maritime marauders were causing issues at sea. It's not known the origins or these marauders, but letters found do indicate they were there and problematic. Since the sea was a primary trade route, and the city of Ugarit was heavily dependent on trade (particularly for copper and tin, primary ingredients in the creation of bronze), it's maybe safe to say that these ships at sea were disrupting the trade routes to and from the city. That said, Ugarit appears to be an exception as many trade routes through the late Bronze Age appear to have been without disruption. In fact Ugarit itself appears to have had a lively international trade right up to the end. So while probable, nothing conclusive about trade disruption being a source of the collapse of the larger civilizations.	Chapter 5	148	62
+16	2020-04-28 16:56:00.557069	2020-04-28 16:56:00.557069	POSSIBLE CAUSE OF COLLAPSE 1(DECENTRALIZATION AND PRIVATE MERCHANTS): This is an idea more recently proposed. While it's clear that the palatial systems of economics fell during the late Bronze Age collapse, it's not clear whether this fall of centralization was the cause of the overall collapse of the civilization, or whether decentralization grew out of the collapse itself. Most likely it, like all the other alternatives is not solely responsible. Although in this particular case the argument can be made that the rise of small kingdoms and entrepreneurship was more of a product of the collapse than the cause itself.	Chapter 5	152	62
+17	2020-04-28 19:18:02.792384	2020-04-28 19:18:02.792384	The "Sea Peoples" often take the blame for the collapse of civilizations in the late to mid-12th century BC. However, this is likely just not the case. Evidence suggests that in many cases the migrants simply settled down and assimilated into the cities in which they found themselves. In fact in many cases evidence suggests that these migrants were not at all raiding warriors bent on destruction. The big question is whether or not they were migrating due to issues at the origin, or if they were just taking advantage of the already collapsing empires to start a new and hopefully better life.	Chapter 5	150	62
+18	2020-04-28 19:29:28.754735	2020-04-28 19:29:28.754735	POSSIBLE CAUSE OF COLLAPSE 1(SYSTEMS COLLAPSE): Another possibility that seems to be supported by the evidence is a systemic collapse. This is more entwined with the other possible reasons for collapse. That is to say that no single possibility - be it earthquakes, immigrations, internal rebellions, trade route disruptions, etc - would have been able to cause a single civilization to collapse much less most all of them. Instead, a more complex, but more likely proposal is a sort of domino effect where one event led to another event and to another. Spiraling out of control. Things got worse until the systems in place could no longer stand. This would indicate that these civilizations fell over a long period of time instead of the single invasion of a 'Sea People' event that many like to hold as the reason for collapse.	Chapter 5	160	62
+19	2020-04-28 19:34:23.563609	2020-04-28 19:34:23.563609	Two things to note about the collapse itself. Each civilization was greatly centralized through the palatial system. That is the palace and the elites controlled all aspects of life. The second thing of note, is that these civilizations were not just in contact with one another, but highly invested and dependent upon trade with the others. If one civilization palatial system were to collapse it would take down the entirety of the empire with it due to the reliance of everything on it. And if that empire were to collapse it could have a ripple effect on the empires on which were dependent on trade with the collapsed empire. If this were to bring down their palatial system the cycle would continue until all palatial systems within the trade network were collapsed. Of note, Jared Diamond discusses this in his book Collapse concerning how trade can take down a series of otherwise independent cultures.	Chapter 5	165	62
 \.
 
 
@@ -1976,7 +2019,7 @@ COPY reference_note (id, created, modified, note, chapter, page, reference_fk) F
 -- Name: reference_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('reference_note_id_seq', 11, true);
+SELECT pg_catalog.setval('reference_note_id_seq', 19, true);
 
 
 --
@@ -2656,6 +2699,7 @@ COPY timeline_event (id, created, modified, timeline_fk, event_fk, is_shadow, pr
 409	2020-04-25 19:41:55.993582	2020-04-25 19:41:55.993582	12	355	f	0
 411	2020-04-25 20:35:58.30004	2020-04-25 20:35:58.30004	12	356	f	0
 412	2020-04-25 20:50:57.251969	2020-04-25 20:50:57.251969	12	357	f	0
+413	2020-04-28 07:20:01.378802	2020-04-28 07:20:01.378802	12	358	f	0
 \.
 
 
@@ -2663,7 +2707,7 @@ COPY timeline_event (id, created, modified, timeline_fk, event_fk, is_shadow, pr
 -- Name: timeline_event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('timeline_event_id_seq', 412, true);
+SELECT pg_catalog.setval('timeline_event_id_seq', 413, true);
 
 
 --
@@ -2714,6 +2758,11 @@ COPY timeline_person (id, created, modified, timeline_fk, person_fk) FROM stdin;
 40	2020-04-08 20:37:17.084085	2020-04-08 20:37:17.084085	10	71
 41	2020-04-11 20:21:49.728717	2020-04-11 20:21:49.728717	12	72
 42	2020-04-23 18:32:18.733083	2020-04-23 18:32:18.733083	12	73
+43	2020-04-28 09:19:23.662401	2020-04-28 09:19:23.662401	12	74
+44	2020-04-28 09:22:51.526133	2020-04-28 09:22:51.526133	12	75
+45	2020-04-28 09:23:48.255864	2020-04-28 09:23:48.255864	12	76
+46	2020-04-28 09:24:25.315017	2020-04-28 09:24:25.315017	12	77
+47	2020-04-28 09:26:01.186848	2020-04-28 09:26:01.186848	12	30
 \.
 
 
@@ -2721,7 +2770,7 @@ COPY timeline_person (id, created, modified, timeline_fk, person_fk) FROM stdin;
 -- Name: timeline_person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('timeline_person_id_seq', 42, true);
+SELECT pg_catalog.setval('timeline_person_id_seq', 47, true);
 
 
 --
