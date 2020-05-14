@@ -36,7 +36,9 @@ class EventNote(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     created = db.Column(db.DateTime, default=db.func.current_timestamp())
     modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+
     note = db.Column(db.String, nullable=False)
+
     event_fk = db.Column(db.Integer, db.ForeignKey('event.id'))
     event = db.relationship('Event', foreign_keys=[event_fk], backref=db.backref('event_note'))
     event_rel = db.relationship('Event', foreign_keys=[event_fk])

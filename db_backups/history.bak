@@ -1188,7 +1188,7 @@ COPY author (id, created, modified, first_name, middle_name, last_name) FROM std
 -- Name: author_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('author_id_seq', 32, true);
+SELECT pg_catalog.setval('author_id_seq', 33, true);
 
 
 --
@@ -1213,7 +1213,7 @@ SELECT pg_catalog.setval('era_id_seq', 2, true);
 --
 
 COPY essay (id, created, modified, title, abstract, essay) FROM stdin;
-4	2020-04-27 11:37:44.493739	2020-04-27 11:46:40.898299	Test Essay	<p>Test abstract.</p>	<p>((r 5 Test)) ((t 4 content)).</p>
+4	2020-04-27 11:37:44.493739	2020-05-04 16:09:32.440598	Consequences of the Truth	<p>What are the consequences of a given truth? Particularly when a truth clashes with an ideological dogma. Historically how do people and groups respond? This clash is probably most obvious between science and religion from proof the earth is not the center to neurological proofs that we are who we are because of the chemical balances in our brains. Beyond this we see it today in economic and political dogmas around our own role in the world with climate change. Another example being the dogma that the human species is now the center of the universe. Humanism being the dogma that drives humanitarianism, but without any proof at all that it&#39;s true or even exists outside our own collective beliefs.</p><p><br></p><p>Historically, where can we show a truth has having succeeded over a dogma and how did that happen. Was there fallout? When was it accepted and how long did that take?</p>	
 \.
 
 
@@ -1244,6 +1244,9 @@ SELECT pg_catalog.setval('essay_id_seq', 4, true);
 --
 
 COPY essay_note (id, created, modified, note, reference_chapter, reference_page, essay_fk, reference_fk) FROM stdin;
+8	2020-05-08 19:40:55.941399	2020-05-08 19:40:55.941399	"Fragility is a disturbing prospect. We see this in our children, who love fairy tales where occult forces threatening their little worlds are exposed and mastered. We are still like children when it comes to thinking about modern political life, whose experimental nature we prefer not to contemplate. Instead, we tell ourselves stories about how our big world came to be and why it is destined to persist. These are legends about the course of history, full of grand terms to describe the process supposedly at work -- modernization, secularization, democratization, the 'disenchantment of the world', 'history as the story of liberty', and countless others.These are the fairy tales of our time Whether they are recounted in epic mode by those satisfied with the present, or in tragic mode by those nostalgic for Eden, they serve the same function in our intellectual culture that tales of witches and wizards do in our children's imaginations: they make the world legible, they reassure us of its irrevocability, and they relieve us of responsibility for maintaining it."	Introduction	6	4	70
+9	2020-05-08 20:48:08.787577	2020-05-08 20:48:08.787577	Recently scientists reviewing a large sample of DNA found via gene sequencing that europeans are 1% to 6% neanderthal. That is sapiens are actually cross bred to some extent with other species. The same was found with Asians, except the cross breed was with homo erectus. This objective truth opens a whole can of worms for anyone looking to make the argument that we're all of the same species. Scientists generally appear to have no reason to push this truth as it would appear the truth would only complicate an already complicated narrative. In the worst case scenario such a truth may lead to an argument for eugenics. That is would humanism still apply if the argument were made scientifically that the 'other' is actually of a different species. Probably not given that it is still just 1 to 6 percent. But the argument that we're all the same becomes difficult in light of this evidence and the claims it implies.	\N	\N	4	\N
+10	2020-05-08 20:55:19.678341	2020-05-08 20:55:19.678341	Historically, we can look back on elements that truth today has explained away. So much so that we might even consider it inconceivable that it ever occurred in the first place. We view stories of people sacrificing an animal in order to ensure the remainder of the herd would be fertile as mythological stories, tending to forget that these things actually happened and the people performing such acts actually believed it to be truth. We know that the rains would have come whether sacrifice was made or not.	\N	\N	4	\N
 \.
 
 
@@ -1251,7 +1254,7 @@ COPY essay_note (id, created, modified, note, reference_chapter, reference_page,
 -- Name: essay_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('essay_note_id_seq', 7, true);
+SELECT pg_catalog.setval('essay_note_id_seq', 10, true);
 
 
 --
@@ -1274,7 +1277,6 @@ SELECT pg_catalog.setval('essay_person_id_seq', 3, true);
 --
 
 COPY essay_reference (id, created, modified, chapter, page, essay_fk, reference_fk) FROM stdin;
-5	2020-04-27 11:46:33.20786	2020-04-27 11:46:33.20786	sdfdf	3	4	55
 \.
 
 
@@ -1290,8 +1292,6 @@ SELECT pg_catalog.setval('essay_reference_id_seq', 5, true);
 --
 
 COPY essay_timeline (id, created, modified, essay_fk, timeline_fk) FROM stdin;
-4	2020-04-27 11:38:21.801718	2020-04-27 11:38:21.801718	4	6
-5	2020-04-27 11:45:00.402235	2020-04-27 11:45:00.402235	4	5
 \.
 
 
@@ -1643,6 +1643,7 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 357	2020-04-25 20:50:52.149652	2020-04-25 20:50:52.149652	The Elamites Attack Babylon	Elam King Shutruk-Nahunte and the Elam army attack Babylon, capture the city, and overthrew the Kassite king. Afterwards he placed his own son on the throne.	\N	1	\N	\N	1	\N	62	1158	1158
 358	2020-04-28 07:19:52.73465	2020-04-28 07:19:52.73465	The Palace At Pylos Is Destroyed	It's not clear how the fire started, or by whom. Only that it was cataclysmic in it's destruction.	\N	1	\N	\N	1	\N	62	1180	1180
 355	2020-04-25 19:41:50.458167	2020-04-28 08:30:23.306666	Egyptian Reign of Pharaoh Ramses III	During his long reign he conducted many military campaigns. In 1155 he was assassinated. Egyptian documents of the following trials indicate it as a plot hatched by a minor queen of the court to have her son succeed Ramses III as Pharaoh.  This has come to be known as the 'Harem Conspiracy'. Archaeologists working with the mummy of Ramses III have found he was stabbed in the throat causing most likely instantaneous death.	\N	1	\N	\N	1	\N	62	1184	1155
+359	2020-05-09 20:39:46.797727	2020-05-09 21:04:51.732299	Roman Capital Is Moved To Byzantium	Roman emperor Constantine moves the Roman capital from Rome to Byzantium. He then renames the new capital to Constantinople.	\N	2	\N	\N	2	\N	70	330	330
 \.
 
 
@@ -1650,7 +1651,7 @@ COPY event (id, created, modified, label, description, event_end_day, event_end_
 -- Name: event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('event_id_seq', 358, true);
+SELECT pg_catalog.setval('event_id_seq', 359, true);
 
 
 --
@@ -1858,6 +1859,7 @@ COPY person (id, created, modified, first_name, middle_name, last_name, birth_da
 75	2020-04-28 09:22:46.520013	2020-04-28 09:22:46.520013	Plato	\N	\N	\N	1	\N	424	\N	1	\N	348	62	Greek philosopher.
 76	2020-04-28 09:23:42.510187	2020-04-28 09:23:42.510187	Aristotle	\N	\N	\N	1	\N	385	\N	1	\N	323	62	Greek philosopher.
 77	2020-04-28 09:24:18.451087	2020-04-28 09:24:18.451087	Socrates	\N	\N	\N	1	\N	470	\N	1	\N	399	62	Greek philosopher
+78	2020-05-09 21:12:09.653469	2020-05-09 21:24:37.903246	Constantine	\N	\N	\N	2	\N	274	\N	2	\N	337	70	Known as 'Constantine the Great', he is most notable for having brought the Roman empire under Christian theology. Having seen a sign of God the Roman emperor brought Christianity into a new historical realm by making it the official religion of the greatest and largest empire of its time.
 \.
 
 
@@ -1865,7 +1867,7 @@ COPY person (id, created, modified, first_name, middle_name, last_name, birth_da
 -- Name: person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('person_id_seq', 77, true);
+SELECT pg_catalog.setval('person_id_seq', 78, true);
 
 
 --
@@ -2012,6 +2014,12 @@ COPY reference_note (id, created, modified, note, chapter, page, reference_fk) F
 17	2020-04-28 19:18:02.792384	2020-04-28 19:18:02.792384	The "Sea Peoples" often take the blame for the collapse of civilizations in the late to mid-12th century BC. However, this is likely just not the case. Evidence suggests that in many cases the migrants simply settled down and assimilated into the cities in which they found themselves. In fact in many cases evidence suggests that these migrants were not at all raiding warriors bent on destruction. The big question is whether or not they were migrating due to issues at the origin, or if they were just taking advantage of the already collapsing empires to start a new and hopefully better life.	Chapter 5	150	62
 18	2020-04-28 19:29:28.754735	2020-04-28 19:29:28.754735	POSSIBLE CAUSE OF COLLAPSE 1(SYSTEMS COLLAPSE): Another possibility that seems to be supported by the evidence is a systemic collapse. This is more entwined with the other possible reasons for collapse. That is to say that no single possibility - be it earthquakes, immigrations, internal rebellions, trade route disruptions, etc - would have been able to cause a single civilization to collapse much less most all of them. Instead, a more complex, but more likely proposal is a sort of domino effect where one event led to another event and to another. Spiraling out of control. Things got worse until the systems in place could no longer stand. This would indicate that these civilizations fell over a long period of time instead of the single invasion of a 'Sea People' event that many like to hold as the reason for collapse.	Chapter 5	160	62
 19	2020-04-28 19:34:23.563609	2020-04-28 19:34:23.563609	Two things to note about the collapse itself. Each civilization was greatly centralized through the palatial system. That is the palace and the elites controlled all aspects of life. The second thing of note, is that these civilizations were not just in contact with one another, but highly invested and dependent upon trade with the others. If one civilization palatial system were to collapse it would take down the entirety of the empire with it due to the reliance of everything on it. And if that empire were to collapse it could have a ripple effect on the empires on which were dependent on trade with the collapsed empire. If this were to bring down their palatial system the cycle would continue until all palatial systems within the trade network were collapsed. Of note, Jared Diamond discusses this in his book Collapse concerning how trade can take down a series of otherwise independent cultures.	Chapter 5	165	62
+20	2020-05-08 19:27:35.196152	2020-05-08 19:27:35.196152	Looking at the modern west we see politics as something separate from religion. However, as unthinkable as the alternative may seem to us, historically we're the group that is currently experimenting with something other than political theology. This experiment has been going on just long enough at this point that those of us under it have almost forgotten the "age-old human quest to bring the whole of human life under God's authority.	Introduction	5	70
+21	2020-05-08 19:45:34.415802	2020-05-08 19:45:34.415802	Political theology was the view of politics through the lenses of religion and the supernatural. Perhaps a monarch ordained by God himself for example. Modern western politics is an experiment of viewing politics as something wholly of human nature alone.	Introduction	3	70
+22	2020-05-08 20:18:17.795098	2020-05-08 20:18:17.795098	Politics is a dispute over authority. Who may legitimately exercise power over others, to what ends, and under what conditions.	1: The Crisis	22	70
+23	2020-05-08 20:27:10.110891	2020-05-08 20:27:10.110891	This is a test note.	\N	\N	52
+24	2020-05-08 20:32:57.90459	2020-05-08 20:32:57.90459	A religion whose god is authoritative may be more likely to find itself in the realm of politics. Jesus, referred to as "King" makes it easier for the actual king and the subjects to tell themselves the story that his authority is mandated by the authoritative God. That is the theology translates nicely to the political realm. A passive god, however, may not translate well into politics as the story of a passive god may not have much to contribute to politics itself. So not all religions and theologies become political theologies.	\N	\N	70
+25	2020-05-09 20:04:29.229963	2020-05-09 20:04:29.229963	Historically there are three views of God. The first is the god of pantheism. The god that embodies everything. In this view god is here on earth not only mingling with us humans, but is the essence of all things. Second is the distant god. This is the creator god who walks away afterwards and becomes inaccessible to its own creation. Lastly is the transcendent god. This is most popularly the god of the Hebrews, the  Christians, and the Muslims. This god is one who is not necessarily present, but is also not absent. It resides in some type of space like heaven. From this space it is not instantly reachable, but also not beyond reach.	1: The Crisis	26	70
 \.
 
 
@@ -2019,7 +2027,7 @@ COPY reference_note (id, created, modified, note, chapter, page, reference_fk) F
 -- Name: reference_note_id_seq; Type: SEQUENCE SET; Schema: public; Owner: adrianadelacuadra
 --
 
-SELECT pg_catalog.setval('reference_note_id_seq', 19, true);
+SELECT pg_catalog.setval('reference_note_id_seq', 25, true);
 
 
 --
@@ -3307,6 +3315,188 @@ ALTER TABLE ONLY timeline_person
 
 ALTER TABLE ONLY timeline_person
     ADD CONSTRAINT timeline_person_timeline_fk_fkey FOREIGN KEY (timeline_fk) REFERENCES timeline(id);
+
+
+--
+-- Name: alembic_version; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE alembic_version TO adri;
+
+
+--
+-- Name: author; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE author TO adri;
+
+
+--
+-- Name: era; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE era TO adri;
+
+
+--
+-- Name: essay; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE essay TO adri;
+
+
+--
+-- Name: essay_event; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE essay_event TO adri;
+
+
+--
+-- Name: essay_note; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE essay_note TO adri;
+
+
+--
+-- Name: essay_person; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE essay_person TO adri;
+
+
+--
+-- Name: essay_reference; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE essay_reference TO adri;
+
+
+--
+-- Name: essay_timeline; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE essay_timeline TO adri;
+
+
+--
+-- Name: event; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE event TO adri;
+
+
+--
+-- Name: event_note; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE event_note TO adri;
+
+
+--
+-- Name: event_tag; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE event_tag TO adri;
+
+
+--
+-- Name: month; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE month TO adri;
+
+
+--
+-- Name: person; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE person TO adri;
+
+
+--
+-- Name: person_note; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE person_note TO adri;
+
+
+--
+-- Name: person_tag; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE person_tag TO adri;
+
+
+--
+-- Name: reference; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE reference TO adri;
+
+
+--
+-- Name: reference_author; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE reference_author TO adri;
+
+
+--
+-- Name: reference_note; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE reference_note TO adri;
+
+
+--
+-- Name: tag; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE tag TO adri;
+
+
+--
+-- Name: timeline; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE timeline TO adri;
+
+
+--
+-- Name: timeline_category; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE timeline_category TO adri;
+
+
+--
+-- Name: timeline_category_event; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE timeline_category_event TO adri;
+
+
+--
+-- Name: timeline_category_person; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE timeline_category_person TO adri;
+
+
+--
+-- Name: timeline_event; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE timeline_event TO adri;
+
+
+--
+-- Name: timeline_person; Type: ACL; Schema: public; Owner: adrianadelacuadra
+--
+
+GRANT ALL ON TABLE timeline_person TO adri;
 
 
 --

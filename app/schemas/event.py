@@ -36,11 +36,12 @@ class EventSchema(Schema):
         'EventNoteSchema',
         exclude=('event',),
         many=True)
+
     timeline_event = fields.Nested(
         'TimelineEventSchema',
-        # exclude=('timeline.timeline_event', 'timeline.timeline_person', 'event'),
         only=('timeline.label', 'timeline.id', 'id'),
         many=True)
+
     event_tag = fields.Nested(
         'EventTagSchema',
         exclude=('event',),
