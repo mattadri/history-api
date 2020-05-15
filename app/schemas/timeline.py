@@ -26,6 +26,7 @@ class TimelineSchema(Schema):
     created = fields.Date()
     modified = fields.Date()
     label = fields.String()
+    description = fields.String()
     timeline_event = fields.Nested('TimelineEventSchema', exclude=('timeline',), many=True)
     timeline_person = fields.Nested('TimelinePersonSchema', exclude=('timeline',), many=True)
     timeline_category = fields.Nested('TimelineCategorySchema', exclude=('timeline',), many=True)
