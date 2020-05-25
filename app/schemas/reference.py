@@ -67,12 +67,35 @@ class ReferenceSchema(Schema):
 
 
 class ReferenceList(ResourceList):
+    def after_get(self, result):
+        # for each source sort the notes descending so the newest note is always listed first
+        for source in result['data']:
+            try:
+                notes = source['attributes']['reference_note']['data']
+
+                if len(notes):
+                    sorted_notes = sorted(notes, key=lambda k: k['attributes']['created'], reverse=True)
+
+                    source['attributes']['reference_note']['data'] = sorted_notes
+
+            except Exception as e:
+                continue
+
     schema = ReferenceSchema
     data_layer = {'session': db.session,
                   'model': Reference}
 
 
 class ReferenceDetail(ResourceDetail):
+    def after_get(self, result):
+        # sort the notes descending so the newest note is always listed first
+        notes = result['data']['attributes']['reference_note']['data']
+
+        if len(notes):
+            sorted_notes = sorted(notes, key=lambda k: k['attributes']['created'], reverse=True)
+
+            result['data']['attributes']['reference_note']['data'] = sorted_notes
+
     def before_patch(self, args, kwargs):
         if 'published_day' in request.json['data']['attributes'].keys() and request.json['data']['attributes']['published_day'] == 'null':
             request.json['data']['attributes']['published_day'] = None
