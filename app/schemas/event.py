@@ -8,6 +8,8 @@ from flask_rest_jsonapi import ResourceDetail, ResourceList
 from app.models.event import Event, EventNote
 from app.models.tag import EventTag
 
+from app.models.timeline import TimelineCategoryEvent, TimelineEvent
+
 from app import db
 
 
@@ -112,6 +114,24 @@ class EventDetail(ResourceDetail):
             request.json['data']['attributes']['event_end_month_rel']['data']['id'] = None
 
         return
+
+    def before_delete(self, args, kwargs):
+        # remove all relationships
+        query = db.session.query(TimelineCategoryEvent)
+        query = query.filter(TimelineCategoryEvent.event_fk == kwargs['id'])
+        query.delete()
+
+        query = db.session.query(EventTag)
+        query = query.filter(EventTag.event_fk == kwargs['id'])
+        query.delete()
+
+        query = db.session.query(TimelineEvent)
+        query = query.filter(TimelineEvent.event_fk == kwargs['id'])
+        query.delete()
+
+        query = db.session.query(EventNote)
+        query = query.filter(EventNote.event_fk == kwargs['id'])
+        query.delete()
 
     schema = EventSchema
     data_layer = {'session': db.session,

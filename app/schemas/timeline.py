@@ -46,6 +46,13 @@ class TimelineDetail(ResourceDetail):
         # order the events from oldest to most recent
         timeline_events = result['data']['attributes']['timeline_event']['data']
 
+        for timeline_event in timeline_events:
+            if timeline_event['attributes']['event'] is None:
+                query = db.session.query(TimelineEvent)
+                query = query.filter(TimelineEvent.id == timeline_event['id'])
+                query.delete()
+
+
         sorted_timeline = sorted(
             timeline_events,
             key=lambda k: k['attributes']['event']['data']['attributes']['event_start_era']['data']['attributes']['label'])
