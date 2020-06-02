@@ -32,6 +32,10 @@ def create_api(flask_app):
     from app.schemas.essay import EssayEventList, EssayEventDetail
     from app.schemas.essay import EssayPersonList, EssayPersonDetail
     from app.schemas.essay import EssayTimelineList, EssayTimelineDetail
+    from app.schemas.brainstorm import BrainstormList, BrainstormDetail
+    from app.schemas.brainstorm import BrainstormThoughtList, BrainstormThoughtDetail
+    from app.schemas.brainstorm import BrainstormTopicList, BrainstormTopicDetail
+    from app.schemas.brainstorm import BrainstormTopicThoughtList, BrainstormTopicThoughtDetail
     from app.schemas.tag import TagList, TagDetail
 
     from app.schemas.timeline import TimelineList, TimelineDetail
@@ -108,6 +112,22 @@ def create_api(flask_app):
     # ESSAY NOTE ROUTES
     api.route(EssayNoteList, 'essay_note_list', '/essay_notes')
     api.route(EssayNoteDetail, 'essay_note_detail', '/essay_notes/<int:id>')
+
+    # BRAINSTORM ROUTES
+    api.route(BrainstormList, 'brainstorm_list', '/brainstorms')
+    api.route(BrainstormDetail, 'brainstorm_detail', '/brainstorms/<int:id>')
+
+    # BRAINSTORM THOUGHT ROUTES
+    api.route(BrainstormThoughtList, 'brainstorm_thought_list', '/brainstorm_thoughts')
+    api.route(BrainstormThoughtDetail, 'brainstorm_thought_detail', '/brainstorm_thoughts/<int:id>')
+
+    # BRAINSTORM_TOPIC ROUTES
+    api.route(BrainstormTopicList, 'brainstorm_topic_list', '/brainstorm_topics')
+    api.route(BrainstormTopicDetail, 'brainstorm_topic_detail', '/brainstorm_topics/<int:id>')
+
+    # BRAINSTORM_TOPIC_THOUGHT ROUTES
+    api.route(BrainstormTopicThoughtList, 'brainstorm_topic_thought_list', '/brainstorm_topic_thoughts')
+    api.route(BrainstormTopicThoughtDetail, 'brainstorm_topic_thought_detail', '/brainstorm_topic_thoughts/<int:id>')
 
     # TIMELINE ROUTES
     api.route(TimelineList, 'timeline_list', '/timelines')
