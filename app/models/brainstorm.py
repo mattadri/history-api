@@ -20,6 +20,7 @@ class BrainstormThought(db.Model):
     thought = db.Column(db.Text)
     chapter = db.Column(db.String)
     page = db.Column(db.Integer)
+    position = db.Column(db.Integer)
 
     brainstorm_fk = db.Column(db.Integer, db.ForeignKey('brainstorm.id'))
     brainstorm = db.relationship('Brainstorm', foreign_keys=[brainstorm_fk], backref=db.backref('brainstorm_thought'))
@@ -37,6 +38,7 @@ class BrainstormTopic(db.Model):
     created = db.Column(db.DateTime, default=db.func.current_timestamp())
     modified = db.Column(db.DateTime, default=db.func.current_timestamp())
     label = db.Column(db.String, nullable=False)
+    position = db.Column(db.Integer)
 
     brainstorm_fk = db.Column(db.Integer, db.ForeignKey('brainstorm.id'))
     brainstorm = db.relationship('Brainstorm', foreign_keys=[brainstorm_fk], backref=db.backref('brainstorm_topic'))
@@ -52,6 +54,7 @@ class BrainstormTopicThought(db.Model):
     thought = db.Column(db.Text)
     chapter = db.Column(db.String)
     page = db.Column(db.Integer)
+    position = db.Column(db.Integer)
 
     brainstorm_topic_fk = db.Column(db.Integer, db.ForeignKey('brainstorm_topic.id'))
     brainstorm_topic = db.relationship('BrainstormTopic', foreign_keys=[brainstorm_topic_fk], backref=db.backref('brainstorm_topic_thought'))

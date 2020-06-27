@@ -33,6 +33,32 @@ class BrainstormList(ResourceList):
 
 
 class BrainstormDetail(ResourceDetail):
+    def after_get(self, result):
+        # SORT BRAINSTORM THOUGHTS BY POSITION
+        brainstorm_thoughts = result['data']['attributes']['brainstorm_thought']['data']
+
+        if len(brainstorm_thoughts):
+            brainstorm_thoughts = sorted(brainstorm_thoughts, key=lambda k: k['attributes']['position'])
+
+        result['data']['attributes']['brainstorm_thought']['data'] = brainstorm_thoughts
+
+        # SORT TOPICS BY POSITION
+        topics = result['data']['attributes']['brainstorm_topic']['data']
+
+        if len(topics):
+            topics = sorted(topics, key=lambda k: k['attributes']['position'])
+
+        result['data']['attributes']['brainstorm_topic']['data'] = topics
+
+        # SORT TOPIC THOUGHTS BY POSITION
+        for topic in result['data']['attributes']['brainstorm_topic']['data']:
+            topic_thoughts = topic['attributes']['brainstorm_topic_thought']['data']
+
+            if len(topic_thoughts):
+                topic_thoughts = sorted(topic_thoughts, key=lambda k: k['attributes']['position'])
+
+                topic['attributes']['brainstorm_topic_thought']['data'] = topic_thoughts
+
     schema = BrainstormSchema
     data_layer = {'session': db.session,
                   'model': Brainstorm}
@@ -53,6 +79,8 @@ class BrainstormThoughtSchema(Schema):
 
     chapter = fields.String()
     page = fields.Integer()
+
+    position = fields.Integer(required=True)
 
     reference = fields.Nested('ReferenceSchema')
 
@@ -94,6 +122,8 @@ class BrainstormTopicSchema(Schema):
 
     label = fields.String(required=True)
 
+    position = fields.Integer(required=True)
+
     brainstorm_topic_thought = fields.Nested('BrainstormTopicThoughtSchema', many=True)
 
     brainstorm_rel = Relationship(
@@ -130,6 +160,12 @@ class BrainstormTopicThoughtSchema(Schema):
 
     chapter = fields.String()
     page = fields.Integer()
+
+    position = fields.Integer(required=True)
+
+    reference = fields.Nested('ReferenceSchema')
+
+    brainstorm_topic_fk = fields.Integer()
 
     brainstorm_topic_rel = Relationship(
         schema='BrainstormTopicSchema',

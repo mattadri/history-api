@@ -26,6 +26,15 @@ def create_api(flask_app):
     from app.schemas.person import PersonList, PersonDetail
     from app.schemas.person import PersonTagList, PersonTagDetail
     from app.schemas.person import PersonNoteList, PersonNoteDetail
+    from app.schemas.chart import ChartList, ChartDetail
+    from app.schemas.chart import ChartLabelList, ChartLabelDetail
+    from app.schemas.chart import ChartDatasetList, ChartDatasetDetail
+    from app.schemas.chart import ChartDatasetDataList, ChartDatasetDataDetail
+    from app.schemas.chart import ChartOptionsList, ChartOptionsDetail
+    from app.schemas.chart import ChartTitleOptionsList, ChartTitleOptionsDetail
+    from app.schemas.chart import ChartLegendOptionsList, ChartLegendOptionsDetail
+    from app.schemas.chart import ChartLegendLabelOptionsList, ChartLegendLabelOptionsDetail
+    from app.schemas.chart import ChartTooltipOptionsList, ChartTooltipOptionsDetail
     from app.schemas.essay import EssayList, EssayDetail
     from app.schemas.essay import EssayNoteList, EssayNoteDetail
     from app.schemas.essay import EssayReferenceList, EssayReferenceDetail
@@ -88,6 +97,42 @@ def create_api(flask_app):
     # PERSON NOTE ROUTES
     api.route(PersonNoteList, 'person_note_list', '/person_notes')
     api.route(PersonNoteDetail, 'person_note_detail', '/person_notes/<int:id>')
+
+    # CHART ROUTES
+    api.route(ChartList, 'chart_list', '/charts')
+    api.route(ChartDetail, 'chart_detail', '/charts/<int:id>')
+
+    # CHART LABEL ROUTES
+    api.route(ChartLabelList, 'chart_label_list', '/chart_labels')
+    api.route(ChartLabelDetail, 'chart_label_detail', '/chart_labels/<int:id>')
+
+    # CHART DATASET ROUTES
+    api.route(ChartDatasetList, 'chart_dataset_list', '/chart_datasets')
+    api.route(ChartDatasetDetail, 'chart_dataset_detail', '/chart_datasets/<int:id>')
+
+    # CHART DATASET DATA ROUTES
+    api.route(ChartDatasetDataList, 'chart_dataset_data_list', '/chart_dataset_data')
+    api.route(ChartDatasetDataDetail, 'chart_dataset_data_detail', '/chart_dataset_data/<int:id>')
+
+    # CHART OPTIONS ROUTES
+    api.route(ChartOptionsList, 'chart_options_list', '/chart_options')
+    api.route(ChartOptionsDetail, 'chart_options_detail', '/chart_options/<int:id>')
+
+    # CHART TITLE OPTIONS ROUTES
+    api.route(ChartTitleOptionsList, 'chart_title_options_list', '/chart_title_options')
+    api.route(ChartTitleOptionsDetail, 'chart_title_options_detail', '/chart_title_options/<int:id>')
+
+    # CHART LEGEND OPTIONS ROUTES
+    api.route(ChartLegendOptionsList, 'chart_legend_options_list', '/chart_legend_options')
+    api.route(ChartLegendOptionsDetail, 'chart_legend_options_detail', '/chart_legend_options/<int:id>')
+
+    # CHART LEGEND LABEL OPTIONS ROUTES
+    api.route(ChartLegendLabelOptionsList, 'chart_legend_label_options_list', '/chart_legend_label_options')
+    api.route(ChartLegendLabelOptionsDetail, 'chart_legend_label_options_detail', '/chart_legend_label_options/<int:id>')
+
+    # CHART TOOLTIP OPTIONS ROUTES
+    api.route(ChartTooltipOptionsList, 'chart_tooltip_options_list', '/chart_tooltip_options')
+    api.route(ChartTooltipOptionsDetail, 'chart_tooltip_options_detail', '/chart_tooltip_options/<int:id>')
 
     # ESSAY ROUTES
     api.route(EssayList, 'essay_list', '/essays')
