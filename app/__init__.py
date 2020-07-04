@@ -19,8 +19,8 @@ def create_api(flask_app):
     from app.schemas.event import EventList, EventDetail
     from app.schemas.event import EventNoteList, EventNoteDetail
     from app.schemas.event import EventTagList, EventTagDetail
-    from app.schemas.reference import ReferenceList, ReferenceDetail, ReferenceRelationship
-    from app.schemas.reference import AuthorList, AuthorDetail, AuthorRelationship
+    from app.schemas.reference import ReferenceList, ReferenceDetail  # , ReferenceRelationship
+    from app.schemas.reference import AuthorList, AuthorDetail  # , AuthorRelationship
     from app.schemas.reference import ReferenceAuthorList, ReferenceAuthorDetail
     from app.schemas.reference import ReferenceNoteList, ReferenceNoteDetail
     from app.schemas.person import PersonList, PersonDetail
@@ -67,8 +67,8 @@ def create_api(flask_app):
     # REFERENCE ROUTES
     api.route(ReferenceList, 'reference_list', '/references')
     api.route(ReferenceDetail, 'reference_detail', '/references/<int:id>')
-    api.route(ReferenceRelationship, 'reference_month', '/references/<int:id>/relationships/published_month')
-    api.route(ReferenceRelationship, 'reference_era', '/references/<int:id>/relationships/published_era')
+    # api.route(ReferenceRelationship, 'reference_month', '/references/<int:id>/relationships/published_month')
+    # api.route(ReferenceRelationship, 'reference_era', '/references/<int:id>/relationships/published_era')
 
     # AUTHOR ROUTES
     api.route(AuthorList, 'author_list', '/authors')

@@ -25,13 +25,14 @@ class ReferenceSchema(Schema):
     title = fields.String(required=True)
     sub_title = fields.String(required=False, allow_none=True)
     published_day = fields.Integer(required=False, allow_none=True)
-    published_month = fields.Nested(MonthSchema)
     published_year = fields.Integer(required=True)
+
+    published_month = fields.Nested(MonthSchema)
     published_era = fields.Nested(EraSchema)
 
     reference_author = fields.Nested(
         'ReferenceAuthorSchema',
-        exclude=('reference',),
+        only=('id', 'author.id', 'author.first_name', 'author.last_name', 'author.middle_name'),
         many=True)
 
     reference_note = fields.Nested(
@@ -40,20 +41,12 @@ class ReferenceSchema(Schema):
         many=True)
 
     published_month_rel = Relationship(
-        self_view='reference_month',
-        self_view_kwargs={'id': '<id>'},
-        related_view='month_detail',
-        related_view_kwargs={'id': '<id>'},
         many=False,
         schema='MonthSchema',
         type_='month',
         required=False
     )
     published_era_rel = Relationship(
-        self_view='reference_era',
-        self_view_kwargs={'id': '<id>'},
-        related_view='era_detail',
-        related_view_kwargs={'id': '<id>'},
         many=False,
         schema='EraSchema',
         type_='era',
@@ -114,12 +107,6 @@ class ReferenceDetail(ResourceDetail):
                   'model': Reference}
 
 
-class ReferenceRelationship(ResourceRelationship):
-    schema = ReferenceSchema
-    data_layer = {'session': db.session,
-                  'model': Reference}
-
-
 class AuthorSchema(Schema):
     class Meta:
         type_ = 'author'
@@ -133,11 +120,11 @@ class AuthorSchema(Schema):
     first_name = fields.String()
     middle_name = fields.String()
     last_name = fields.String()
-    reference_authors = Relationship(
-        many=True,
-        schema='ReferenceAuthorSchema',
-        type_='reference_author'
-    )
+
+    reference_author = fields.Nested(
+        'ReferenceAuthorSchema',
+        only=('id', 'reference.id', 'reference.title', 'reference.sub_title'),
+        many=True)
 
 
 class AuthorList(ResourceList):
@@ -153,12 +140,6 @@ class AuthorDetail(ResourceDetail):
         query = query.filter(ReferenceAuthor.author_fk == kwargs['id'])
         query.delete()
 
-    schema = AuthorSchema
-    data_layer = {'session': db.session,
-                  'model': Author}
-
-
-class AuthorRelationship(ResourceRelationship):
     schema = AuthorSchema
     data_layer = {'session': db.session,
                   'model': Author}
