@@ -14,9 +14,11 @@ class Event(db.Model):
     event_start_month = db.relationship('Month', foreign_keys=[event_start_month_fk])
     event_start_month_rel = db.relationship('Month', foreign_keys=[event_start_month_fk])
     event_start_year = db.Column(db.BigInteger)
+
     event_start_era_fk = db.Column(db.Integer, db.ForeignKey('era.id'))
     event_start_era = db.relationship('Era', foreign_keys=[event_start_era_fk])
     event_start_era_rel = db.relationship('Era', foreign_keys=[event_start_era_fk])
+
     event_end_day = db.Column(db.Integer)
     event_end_month_fk = db.Column(db.Integer, db.ForeignKey('month.id'))
     event_end_month = db.relationship('Month', foreign_keys=[event_end_month_fk])

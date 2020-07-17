@@ -3,7 +3,7 @@ from marshmallow_jsonapi import fields
 
 from flask_rest_jsonapi import ResourceDetail, ResourceList
 
-from app.models.person import Person, PersonNote
+from app.models.person import Person, PersonNote, PersonBiography
 
 from app.models.tag import PersonTag
 
@@ -35,6 +35,8 @@ class PersonSchema(Schema):
     death_era = fields.Nested('EraSchema', required=False)
 
     reference = fields.Nested('ReferenceSchema')
+
+    person_biography = fields.Nested('PersonBiographySchema', many=True)
 
     person_note = fields.Nested(
         'PersonNoteSchema',
@@ -133,6 +135,43 @@ class PersonNoteDetail(ResourceDetail):
     schema = PersonNoteSchema
     data_layer = {'session': db.session,
                   'model': PersonNote}
+
+
+class PersonBiographySchema(Schema):
+    class Meta:
+        type_ = 'person_biography'
+        self_view = 'person_biography_detail'
+        self_view_kwargs = {'id': '<id>'}
+        self_view_many = 'person_biography_list'
+
+    id = fields.Str(dump_only=True)
+    created = fields.Date()
+    modified = fields.Date()
+
+    essay = fields.Nested('EssaySchema', only=('id', 'title'))
+
+    essay_rel = Relationship(
+        many=False,
+        schema='EssaySchema',
+        type_='essay')
+
+    person_rel = Relationship(
+        many=False,
+        schema='PersonSchema',
+        type_='person'
+    )
+
+
+class PersonBiographyList(ResourceList):
+    schema = PersonBiographySchema
+    data_layer = {'session': db.session,
+                  'model': PersonBiography}
+
+
+class PersonBiographyDetail(ResourceDetail):
+    schema = PersonBiographySchema
+    data_layer = {'session': db.session,
+                  'model': PersonBiography}
 
 
 class PersonTagSchema(Schema):

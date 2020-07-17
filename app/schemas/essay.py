@@ -5,7 +5,7 @@ from marshmallow_jsonapi import fields
 
 from flask_rest_jsonapi import ResourceDetail, ResourceList
 
-from app.models.essay import Essay, EssayNote, EssayReference, EssayEvent, EssayPerson, EssayTimeline
+from app.models.essay import Essay, EssayNote, EssayReference, EssayEvent, EssayPerson, EssayTimeline, EssayType
 
 from app import db
 
@@ -25,11 +25,19 @@ class EssaySchema(Schema):
     abstract = fields.String()
     essay = fields.String()
 
+    type = fields.Nested('EssayTypeSchema')
     essay_note = fields.Nested('EssayNoteSchema', many=True)
     essay_reference = fields.Nested('EssayReferenceSchema', many=True)
     essay_event = fields.Nested('EssayEventSchema', many=True)
     essay_person = fields.Nested('EssayPersonSchema', many=True)
     essay_timeline = fields.Nested('EssayTimelineSchema', many=True)
+
+    type_rel = Relationship(
+        many=False,
+        schema='EssayTypeSchema',
+        type_='essay_type',
+        required=False
+    )
 
 
 class EssayList(ResourceList):
@@ -267,3 +275,29 @@ class EssayTimelineDetail(ResourceDetail):
     schema = EssayTimelineSchema
     data_layer = {'session': db.session,
                   'model': EssayTimeline}
+
+
+class EssayTypeSchema(Schema):
+    class Meta:
+        type_ = 'essay_type'
+        self_view = 'essay_type_detail'
+        self_view_kwargs = {'id': '<id>'}
+        self_view_many = 'essay_type_list'
+
+    id = fields.Str(dump_only=True)
+    created = fields.Date()
+    modified = fields.Date()
+
+    label = fields.String()
+
+
+class EssayTypeList(ResourceList):
+    schema = EssayTypeSchema
+    data_layer = {'session': db.session,
+                  'model': EssayType}
+
+
+class EssayTypeDetail(ResourceDetail):
+    schema = EssayTypeSchema
+    data_layer = {'session': db.session,
+                  'model': EssayType}

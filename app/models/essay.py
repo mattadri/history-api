@@ -11,6 +11,10 @@ class Essay(db.Model):
     abstract = db.Column(db.Text)
     essay = db.Column(db.Text)
 
+    type_fk = db.Column(db.Integer, db.ForeignKey('essay_type.id'))
+    type = db.relationship('EssayType', foreign_keys=[type_fk], backref=db.backref('essay'))
+    type_rel = db.relationship('EssayType', foreign_keys=[type_fk])
+
 
 class EssayReference(db.Model):
     __tablename__ = 'essay_reference'
@@ -98,3 +102,13 @@ class EssayNote(db.Model):
     reference_fk = db.Column(db.Integer, db.ForeignKey('reference.id'))
     reference = db.relationship('Reference', foreign_keys=[reference_fk], backref=db.backref('essay_note'))
     reference_rel = db.relationship('Reference', foreign_keys=[reference_fk])
+
+
+class EssayType(db.Model):
+    __tablename__ = 'essay_type'
+
+    id = db.Column(db.Integer, primary_key=True)
+    created = db.Column(db.DateTime, default=db.func.current_timestamp())
+    modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
+
+    label = db.Column(db.String)

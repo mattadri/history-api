@@ -26,6 +26,7 @@ def create_api(flask_app):
     from app.schemas.person import PersonList, PersonDetail
     from app.schemas.person import PersonTagList, PersonTagDetail
     from app.schemas.person import PersonNoteList, PersonNoteDetail
+    from app.schemas.person import PersonBiographyList, PersonBiographyDetail
     from app.schemas.chart import ChartList, ChartDetail
     from app.schemas.chart import ChartLabelList, ChartLabelDetail
     from app.schemas.chart import ChartDatasetList, ChartDatasetDetail
@@ -36,6 +37,7 @@ def create_api(flask_app):
     from app.schemas.chart import ChartLegendLabelOptionsList, ChartLegendLabelOptionsDetail
     from app.schemas.chart import ChartTooltipOptionsList, ChartTooltipOptionsDetail
     from app.schemas.essay import EssayList, EssayDetail
+    from app.schemas.essay import EssayTypeList, EssayTypeDetail
     from app.schemas.essay import EssayNoteList, EssayNoteDetail
     from app.schemas.essay import EssayReferenceList, EssayReferenceDetail
     from app.schemas.essay import EssayEventList, EssayEventDetail
@@ -98,6 +100,10 @@ def create_api(flask_app):
     api.route(PersonNoteList, 'person_note_list', '/person_notes')
     api.route(PersonNoteDetail, 'person_note_detail', '/person_notes/<int:id>')
 
+    # PERSON BIOGRAPHY ROUTES
+    api.route(PersonBiographyList, 'person_biography_list', '/person_biographies')
+    api.route(PersonBiographyDetail, 'person_biography_detail', '/person_biographies/<int:id>')
+
     # CHART ROUTES
     api.route(ChartList, 'chart_list', '/charts')
     api.route(ChartDetail, 'chart_detail', '/charts/<int:id>')
@@ -137,6 +143,10 @@ def create_api(flask_app):
     # ESSAY ROUTES
     api.route(EssayList, 'essay_list', '/essays')
     api.route(EssayDetail, 'essay_detail', '/essays/<int:id>')
+
+    # ESSAY TYPE ROUTES
+    api.route(EssayTypeList, 'essay_type_list', '/essay_types')
+    api.route(EssayTypeDetail, 'essay_type_detail', '/essay_types/<int:id>')
 
     # ESSAY REFERENCE ROUTES
     api.route(EssayReferenceList, 'essay_reference_list', '/essay_references')
