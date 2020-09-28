@@ -169,11 +169,11 @@ class ChartDatasetData(db.Model):
     created = db.Column(db.DateTime, default=db.func.current_timestamp())
     modified = db.Column(db.DateTime, default=db.func.current_timestamp(), onupdate=db.func.current_timestamp())
 
-    x_data = db.Column(db.Integer)
-    y_data = db.Column(db.Integer)
+    x_data = db.Column(db.Float)
+    y_data = db.Column(db.Float)
 
     # radius value in the case of a bubble map
-    r_data = db.Column(db.Integer)
+    r_data = db.Column(db.Float)
 
     chart_dataset_fk = db.Column(db.Integer, db.ForeignKey('chart_dataset.id'))
     chart_dataset = db.relationship('ChartDataset', foreign_keys=[chart_dataset_fk], backref=db.backref('chart_dataset_data'))

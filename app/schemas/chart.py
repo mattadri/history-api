@@ -240,9 +240,9 @@ class ChartDatasetDataSchema(Schema):
     created = fields.Date()
     modified = fields.Date()
 
-    x_data = fields.Integer()
-    y_data = fields.Integer()
-    r_data = fields.Integer()
+    x_data = fields.Float()
+    y_data = fields.Float()
+    r_data = fields.Float()
 
     chart_dataset_rel = Relationship(
         schema='ChartDatasetSchema',
